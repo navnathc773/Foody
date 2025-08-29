@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import "../style/first.css";
 import { Product } from "./Product";
+import { Glimpse } from "./Glimpse";
 
 export const Home = () => {
   const images = [
@@ -12,7 +13,7 @@ export const Home = () => {
   ];
 
   const [index, setIndex] = useState(0);
-
+  const [more,setmore]=useState(false);
   useEffect(() => {
     const interval = setInterval(() => {
       setIndex((prev) => (prev + 1) % images.length);
@@ -40,6 +41,12 @@ export const Home = () => {
       <h1>Our Products</h1>
       <br />
       <Product />
+    </div>
+    <div>
+        <h3 className="view-more">.....View More</h3>
+    </div>
+    <div>
+      <Glimpse />
     </div>
     </>
   );

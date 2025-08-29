@@ -1,6 +1,7 @@
 import React from "react";
 import data from "./Product.json";
 import "../style/product.css";  // 👈 Import CSS here
+import { useState } from "react";
 
 export const Product = () => {
   return (
