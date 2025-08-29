@@ -1,5 +1,5 @@
 import express from "express";
-import { hashedPassword, insertData, isEmailExist, isPasswordSame } from "../models/auth.model.js";
+import { generateToken, hashedPassword, insertData, isEmailExist, isPasswordSame } from "../models/auth.model.js";
 
 const router=express.Router();
 
@@ -28,7 +28,10 @@ router.post('/verify',async(req,res)=>{
   if(emailexist){
     const checkPass=await isPasswordSame(email,password);
     if(checkPass){
-      return res.status(200).json({msg:"login successfully"});
+      return res.status(200).json({
+        msg:"login successfully",
+        token:await generateToken({email,password}),
+      });
     }
     else{
       return res.status(404).json({msg:"invalid credentials"});
@@ -38,5 +41,6 @@ router.post('/verify',async(req,res)=>{
     return res.status(404).json({msg:"email doesn't exist please sign up"});
   }
 })
+
 export const authLogin=router;
 export const authRegister=router;

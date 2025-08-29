@@ -3,8 +3,9 @@ import { FaShoppingCart } from "react-icons/fa";
 import { NavLink } from "react-router-dom";
 import "../style/Home.css";
 import { useState } from "react";
-
+import { useAuth } from "./auth/Auth";
 export const Layout = () => {
+  const {storeToken}=useAuth();
   const [showModal, setShowModal] = useState(false);
   const [isLogin, setIsLogin] = useState(false);
   const navigate=useNavigate();
@@ -93,6 +94,7 @@ const handleloginsubmit=async(e)=>{
 
   if(response.ok){
     alert(result.msg);
+    storeToken(result.token);
     setIsLogin(false);
     setShowModal(false);
     navigate('/About');

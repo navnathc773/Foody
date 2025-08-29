@@ -1,7 +1,6 @@
 import { collection } from "../db/auth.db.js";
 import bcrypt from "bcrypt";
-
-
+import jwt from "jsonwebtoken";
 export const insertData=async(name,email,mobileno,password)=>{
     return await collection.insertMany({name,email,mobileno,password});
 }
@@ -26,5 +25,11 @@ export const isPasswordSame=async(email,password)=>{
     // console.log( rows.password);
     const verified=await bcrypt.compare(password,rows.password);
     return verified;
+}
+
+export const generateToken=(email,password)=>{
+  return jwt.sign({email,password},'asdf',{
+    expiresIn:"2m",
+  });
 }
 
