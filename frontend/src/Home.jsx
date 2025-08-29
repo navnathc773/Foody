@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import "../style/first.css";
+import { Product } from "./Product";
 
 export const Home = () => {
   const images = [
@@ -20,6 +21,7 @@ export const Home = () => {
   }, [images.length]);
 
   return (
+    <>
     <div className="slider-container">
       <img src={images[index]} alt="slider" className="slider-image" />
 
@@ -34,5 +36,11 @@ export const Home = () => {
         ))}
       </div>
     </div>
+    <div className="product">
+      <h1>Our Products</h1>
+      <br />
+      <Product />
+    </div>
+    </>
   );
 };

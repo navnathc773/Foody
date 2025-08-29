@@ -1,0 +1,30 @@
+[
+    {
+        "id":"1",
+        "src":"https://i.ibb.co/h1dCxZvM/stuff.jpg",
+        "name":"Dal Stuffed Poori",
+        "Description":"Dal Stuffed Poori is a traditional Indian deep-fried bread made with whole wheat flour and a flavorful lentil filling. ",
+        "price":"500/- only"
+    },
+    {
+        "id":"2",
+        "src":"https://i.ibb.co/Xk29k6yS/bread.jpg",
+        "name":"Pita bread with Falafel and Hummus",
+        "Description":"Pita Bread with Falafel and Hummus is a classic Middle Eastern delight that combines soft, fluffy pita pockets with crispy golden falafel and creamy hummus. ",
+        "price":"300/- only"
+    },
+    {
+        "id":"3",
+        "src":"https://i.ibb.co/WWmzm5DP/cake.jpg",
+        "name":"Dry Fruits Cake",
+        "Description":"Dry Fruits Cake is a rich and wholesome dessert made with a delightful mix of dried fruits and nuts, blended into a soft, moist cake. ",
+        "price":"200/- only"
+    },
+    {
+        "id":"4",
+        "src":"https://i.ibb.co/V05YJf8k/poori.jpg",
+        "name":"Luchi Aaloo Dum",
+        "Description":"Luchi Aaloo Dum is a classic Bengali delicacy that pairs soft, golden, deep-fried flatbreads (luchi) with a spicy, flavorful potato curry (aaloo dum). ",
+        "price":"100/- only"
+    }
+]

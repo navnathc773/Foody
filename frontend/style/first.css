@@ -36,3 +36,10 @@
 .dot.active {
   background: white;
 }
+
+.product h1{
+    position: relative;
+    top:50px;
+    text-align: center;
+    font-weight: 900;
+}
