@@ -1,6 +1,38 @@
+import { useState, useEffect } from "react";
+import "../style/first.css";
 
 export const Home = () => {
+  const images = [
+    "https://i.ibb.co/0pFM0XQP/Screenshot-2025-08-29-184401.png",
+    "https://i.ibb.co/BHfkWBfj/Black-and-Orange-Pizza-Recipe-Food-You-Tube-Thumbnail.png",
+    "https://i.ibb.co/wFT1Db54/Foody-cookies.png",
+    "https://i.ibb.co/ZpJRnBDr/Yellow-and-Brown-Organic-Abstract-Food-You-Tube-Thumbnail-1.png",
+    "https://i.ibb.co/bgLQDf5c/Pink-Colorful-Special-Donut-Promo-Banner.png"
+  ];
+
+  const [index, setIndex] = useState(0);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setIndex((prev) => (prev + 1) % images.length);
+    }, 3000);
+    return () => clearInterval(interval);
+  }, [images.length]);
+
   return (
-    <h1>Hello</h1>
+    <div className="slider-container">
+      <img src={images[index]} alt="slider" className="slider-image" />
+
+      {/* Dots */}
+      <div className="slider-dots">
+        {images.map((_, i) => (
+          <span
+            key={i}
+            onClick={() => setIndex(i)}
+            className={`dot ${i === index ? "active" : ""}`}
+          />
+        ))}
+      </div>
+    </div>
   );
 };
