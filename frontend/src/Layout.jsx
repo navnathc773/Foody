@@ -4,8 +4,12 @@ import { NavLink } from "react-router-dom";
 import "../style/Home.css";
 import { useState } from "react";
 import { useAuth } from "./auth/Auth";
+import { CgProfile } from "react-icons/cg";
+
 export const Layout = () => {
   const {storeToken}=useAuth();
+  const {isLoggedIn}=useAuth();
+  const {logout}=useAuth();
   const [showModal, setShowModal] = useState(false);
   const [isLogin, setIsLogin] = useState(false);
   const navigate=useNavigate();
@@ -106,6 +110,10 @@ const handleloginsubmit=async(e)=>{
   console.log(logo);
 
 }
+
+const handlelogOut=()=>{
+   logout();
+}
   return (
     <>
       <nav className="navbar">
@@ -115,14 +123,26 @@ const handleloginsubmit=async(e)=>{
           <NavLink to="/About">About</NavLink>
           <NavLink to="/Contact">Contact</NavLink>
           <NavLink to="/Cart">
-            <FaShoppingCart />
+            <FaShoppingCart/>
           </NavLink>
-          <button className="popup-btn" onClick={openSignUp}>
-            Sign Up
-          </button>
-          <button className="popup-btn" onClick={openLogin}>
-            Login
-          </button>
+          {
+            isLoggedIn ? 
+            <>
+              <CgProfile style={{fontSize:"40", color:"white", cursor:"pointer"}}/>
+              <button className="popup-btn" onClick={handlelogOut} >Log Out</button>
+            </>
+             :
+            <>
+              <button className="popup-btn" onClick={openSignUp}>
+                Sign Up
+              </button>
+              <button className="popup-btn" onClick={openLogin}>
+                Login
+              </button>
+            </>
+
+          }
+          
         </div>
       </nav>
 
