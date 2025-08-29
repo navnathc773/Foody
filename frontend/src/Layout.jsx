@@ -1,4 +1,4 @@
-import { Outlet } from "react-router-dom";
+import { Outlet, useNavigate } from "react-router-dom";
 import { FaShoppingCart } from "react-icons/fa";
 import { NavLink } from "react-router-dom";
 import "../style/Home.css";
@@ -7,7 +7,25 @@ import { useState } from "react";
 export const Layout = () => {
   const [showModal, setShowModal] = useState(false);
   const [isLogin, setIsLogin] = useState(false);
+  const navigate=useNavigate();
+  const[logo,setlogo]=useState({
+    email:"",
+    password:"",
+  })
 
+  const [user,setuser]=useState({
+    name:"",
+    email:"",
+    mobileno:"",
+    password:"",
+  })
+
+  const handleinput=(e)=>{
+    const name=e.target.name;
+    const value=e.target.value;
+    
+    setuser((prev)=>({...prev,[name]:value}));
+  }
   const openSignUp = () => {
     setIsLogin(false);
     setShowModal(true);
@@ -22,6 +40,70 @@ export const Layout = () => {
     setShowModal(false);
   };
 
+  const handlesubmit = async (e) => {
+  e.preventDefault();
+
+  try {
+    const response = await fetch("http://localhost:3000/register/data", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(user),
+    });
+
+    const result = await response.json();
+
+    if (response.status === 200) {
+      alert(result.msg); // "data inserted successfully"
+
+    } else if (response.status === 404) {
+      alert(result.msg); // "Duplicate entry" or "data not inserted"
+    } else {
+      alert("Unexpected error occurred!");
+    }
+
+    console.log("Server Response:", result);
+  } catch (error) {
+    console.error("Error:", error);
+    alert("Something went wrong! Please try again.");
+  }
+};
+
+const handlelogin=(e)=>{
+  const name=e.target.name;
+  const value=e.target.value;
+
+  setlogo((prev)=>({...prev,[name]:value}));
+}
+
+const handleloginsubmit=async(e)=>{
+  e.preventDefault();
+
+  const response=await fetch("http://localhost:3000/login/verify",{
+    method:"POST",
+    headers:{
+      'Content-Type':'application/json',
+    },
+    body:JSON.stringify(logo),
+  })
+
+  const result=await response.json();
+
+  if(response.ok){
+    alert(result.msg);
+    setIsLogin(false);
+    setShowModal(false);
+
+    navigate('/About');
+
+  }
+  else{
+    alert(result.msg);
+  }
+  console.log(logo);
+
+}
   return (
     <>
       <nav className="navbar">
@@ -57,13 +139,14 @@ export const Layout = () => {
 
             {/* Switch between Login & SignUp */}
             {isLogin ? (
-              <form className="signup-form">
+              <form className="signup-form" onSubmit={handleloginsubmit}>
                 <h2>Login</h2>
 
-                <input type="email" name="email" placeholder="Email" required />
+                <input type="email" name="email" placeholder="Email" onChange={handlelogin}required />
                 <input
                   type="password"
                   name="password"
+                  onChange={handlelogin}
                   placeholder="Password"
                   required
                 />
@@ -78,23 +161,13 @@ export const Layout = () => {
                 </p>
               </form>
             ) : (
-              <form className="signup-form">
+              <form className="signup-form" onSubmit={handlesubmit}>
                 <h2>Sign Up</h2>
 
-                <input type="text" name="name" placeholder="Name" required />
-                <input type="email" name="email" placeholder="Email" required />
-                <input
-                  type="text"
-                  name="mobileno"
-                  placeholder="Mobile Number"
-                  required
-                />
-                <input
-                  type="password"
-                  name="password"
-                  placeholder="Password"
-                  required
-                />
+                <input type="text" name="name" placeholder="Name" onChange={handleinput}required />
+                <input type="email" name="email" placeholder="Email" onChange={handleinput} required />
+                <input type="text" name="mobileno" placeholder="Mobile Number" onChange={handleinput} required />
+                <input type="password" name="password" placeholder="Password" onChange={handleinput} required />
 
                 <button type="submit">Register</button>
 

@@ -1,0 +1,42 @@
+import express from "express";
+import { hashedPassword, insertData, isEmailExist, isPasswordSame } from "../models/auth.model.js";
+
+const router=express.Router();
+
+router.post('/data', async (req, res) => {
+  const { name, email, mobileno, password } = req.body;
+
+  const hashpassword = await hashedPassword(password);
+  const checkEmail = await isEmailExist(email);
+
+  if (checkEmail) {
+    return res.status(404).json({ msg: "Duplicate entry: Email already exists" });
+  }
+
+  const insertion = await insertData(name, email, mobileno, hashpassword);
+  console.log(insertion);
+  if (insertion) {
+    return res.status(200).json({ msg: "Data inserted successfully" });
+  }
+});
+
+router.post('/verify',async(req,res)=>{
+  const{email,password}=req.body;
+  
+  const emailexist=await isEmailExist(email);
+
+  if(emailexist){
+    const checkPass=await isPasswordSame(email,password);
+    if(checkPass){
+      return res.status(200).json({msg:"login successfully"});
+    }
+    else{
+      return res.status(404).json({msg:"invalid credentials"});
+    }
+  }
+  else{
+    return res.status(404).json({msg:"email doesn't exist please sign up"});
+  }
+})
+export const authLogin=router;
+export const authRegister=router;
