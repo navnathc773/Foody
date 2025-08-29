@@ -56,6 +56,7 @@ export const Layout = () => {
 
     if (response.status === 200) {
       alert(result.msg); // "data inserted successfully"
+      setIsLogin(true);
 
     } else if (response.status === 404) {
       alert(result.msg); // "Duplicate entry" or "data not inserted"
@@ -94,7 +95,6 @@ const handleloginsubmit=async(e)=>{
     alert(result.msg);
     setIsLogin(false);
     setShowModal(false);
-
     navigate('/About');
 
   }
