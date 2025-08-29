@@ -16,7 +16,9 @@ router.post('/data', async (req, res) => {
   const insertion = await insertData(name, email, mobileno, hashpassword);
   console.log(insertion);
   if (insertion) {
-    return res.status(200).json({ msg: "Data inserted successfully" });
+    return res.status(200).json({
+       msg: "Data inserted successfully",
+      });
   }
 });
 

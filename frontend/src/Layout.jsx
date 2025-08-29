@@ -12,11 +12,18 @@ export const Layout = () => {
   const {logout}=useAuth();
   const [showModal, setShowModal] = useState(false);
   const [isLogin, setIsLogin] = useState(false);
+  const [open, setOpen] = useState(false);
   const navigate=useNavigate();
   const[logo,setlogo]=useState({
     email:"",
     password:"",
   })
+
+  // const [store, setstore] = useState(() => {
+  //     const storedUser = localStorage.getItem("user");
+  //     return storedUser ? JSON.parse(storedUser) : { name: "", email: "", mobileno: "" };
+  //   });
+
 
   const [user,setuser]=useState({
     name:"",
@@ -62,7 +69,7 @@ export const Layout = () => {
     if (response.status === 200) {
       alert(result.msg); // "data inserted successfully"
       setIsLogin(true);
-
+      // localStorage.setItem("user", JSON.stringify(result.wholeData));
     } else if (response.status === 404) {
       alert(result.msg); // "Duplicate entry" or "data not inserted"
     } else {
@@ -128,7 +135,18 @@ const handlelogOut=()=>{
           {
             isLoggedIn ? 
             <>
-              <CgProfile style={{fontSize:"40", color:"white", cursor:"pointer"}}/>
+                <div className="profile-wrapper">
+      <CgProfile style={{ fontSize: "40px", color: "white", cursor: "pointer" }} onClick={() => setOpen(!open)} />
+                {open && (
+                <div className="profile-box">
+                  <h3>User Profile</h3>
+                  <p></p>
+                  <p></p>
+                  <button onClick={() => setOpen(false)}>Close</button>
+                </div>
+              )}
+         </div>
+
               <button className="popup-btn" onClick={handlelogOut} >Log Out</button>
             </>
              :

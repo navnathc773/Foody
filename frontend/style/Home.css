@@ -199,3 +199,42 @@
   color: #555;
 }
 
+
+.profile-wrapper {
+  position: relative;
+  display: inline-block;
+}
+
+.profile-box {
+  position: absolute;
+  top: 50px;   /* below the icon */
+  right: 0;
+  background: white;
+  color: black;
+  padding: 16px;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+  width: 250px;
+  z-index: 100;
+  animation: fadeIn 0.2s ease-in-out;
+}
+
+/* simple animation */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-10px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.profile-box button {
+  background: #0b66c3;
+  color: white;
+  border: none;
+  padding: 6px 12px;
+  border-radius: 6px;
+  cursor: pointer;
+  margin-top: 10px;
+}
+.profile-box button:hover {
+  background: #084c94;
+}
+
