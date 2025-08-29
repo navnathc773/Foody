@@ -19,10 +19,10 @@ export const Layout = () => {
     password:"",
   })
 
-  // const [store, setstore] = useState(() => {
-  //     const storedUser = localStorage.getItem("user");
-  //     return storedUser ? JSON.parse(storedUser) : { name: "", email: "", mobileno: "" };
-  //   });
+  const [store, setstore] = useState(() => {
+      const storedUser = localStorage.getItem("user");
+      return storedUser ? JSON.parse(storedUser) : { name: "", email: "", mobileno: "" };
+    });
 
 
   const [user,setuser]=useState({
@@ -105,6 +105,10 @@ const handleloginsubmit=async(e)=>{
 
   if(response.ok){
     alert(result.msg);
+    console.log('sdkffs',result.pass);
+    localStorage.setItem("user", JSON.stringify(result.user || result.pass));  
+    setstore(result.user || result.pass);
+
     storeToken(result.token);
     setIsLogin(false);
     setShowModal(false);
@@ -140,7 +144,9 @@ const handlelogOut=()=>{
                 {open && (
                 <div className="profile-box">
                   <h3>User Profile</h3>
-                  <p></p>
+                  <p>Name: {store.name}</p>
+                  <p>Mobile No: {store.mobileno} </p>
+                  <p>Email: {store.email} </p>
                   <p></p>
                   <button onClick={() => setOpen(false)}>Close</button>
                 </div>

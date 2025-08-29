@@ -11,6 +11,11 @@ export const hashedPassword=async(password)=>{
     return hashOne;
 }
 
+export const getEmailData=async(email)=>{
+    const rows=await collection.findOne({email});
+    return rows;
+}
+
 export const isEmailExist=async(email)=>{
     const rows=await collection.findOne({email});
 
