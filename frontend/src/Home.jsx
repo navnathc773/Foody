@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import "../style/first.css";
 import { Product } from "./Product";
 import { Glimpse } from "./Glimpse";
+// import { Accordian } from "./Accordian";
 
 export const Home = () => {
   const images = [
@@ -47,6 +48,12 @@ export const Home = () => {
     </div>
     <div>
       <Glimpse />
+    </div>
+    <div>
+      {/* <img src="https://i.ibb.co/7N0fQZW5/delivery-pica.png" width="100%" alt="" /> */}
+    </div>
+    <div>
+      {/* <Accordian /> */}
     </div>
     </>
   );
