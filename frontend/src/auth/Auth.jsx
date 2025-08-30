@@ -4,13 +4,16 @@ export const AuthContext = createContext();
 
 export const AuthProvider = ({ children }) => {
   const [token, setToken] = useState(() => localStorage.getItem("token"));
-  const [cartitems,setCartItems]=useState([]);
+  const [cartitems,setCartItems]=useState(()=>{
+    const saved=localStorage.getItem("cartitems");
+    return saved ? JSON.parse(saved):[];
+  });
 
   const storeToken = (serverToken) => {
     localStorage.setItem("token", serverToken);
     setToken(serverToken);
   };
-
+  
   const addToCart=(item)=>{
     alert("Product added to cart");
     setCartItems((prev)=>([...prev,item]));
