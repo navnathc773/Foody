@@ -1,6 +1,6 @@
 import express from "express";
 import { generateToken, getEmailData, hashedPassword, insertCart, insertData, isEmailExist, isPasswordSame } from "../models/auth.model.js";
-
+import {additionCart} from "../db/auth.db.js";
 const router=express.Router();
 
 router.post('/data', async (req, res) => {
@@ -53,9 +53,34 @@ router.post('/cart',async(req,res)=>{
   const insertion=await insertCart(email,id,src,name,Description,price);
   
   if(insertion){
-    console.log('sdfkf');
+    return res.status(200).json({msg:"Item added to Cart"});
   }
+  else{
+    return res.status(200).json({msg:"Item already exist"});
+  }
+
 })
+
+router.post('/cartOne', async (req, res) => {
+  try {
+    const { email } = req.body;
+    console.log("Fetching cart for:", email);
+
+    // find all items belonging to this email
+    const dataCart = await additionCart.find({ email });
+
+    if (!dataCart || dataCart.length === 0) {
+      return res.status(404).json({ msg: "No items found in cart" });
+    }
+
+    return res.json(dataCart); // send array of items
+  } catch (err) {
+    console.error(err);
+    res.status(500).json({ msg: "Error fetching cart" });
+  }
+});
+
+export const authgetData=router;
 export const authCart=router;
 export const authLogin=router;
 export const authRegister=router;
