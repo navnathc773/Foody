@@ -45,5 +45,11 @@ router.post('/verify',async(req,res)=>{
   }
 })
 
+router.post('/cart',async(req,res)=>{
+  const {id,src,name,Description,price}=req.body.curelem;
+  const {_id,email}=req.body.user;
+  console.log(email);
+})
+export const authCart=router;
 export const authLogin=router;
 export const authRegister=router;

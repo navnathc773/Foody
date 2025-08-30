@@ -27,7 +27,23 @@ const collectionSchema=new Schema({
     timestamps:true,
 });
 
+const newSchema=new Schema({
+    _id:{type:String,required:true},
+    email:{type:String,required:true,lowercase:true},
+    productId:{type:String,required:true},
+    src:{type:String,required:true},
+    name:{type:String,required:true},
+    Description:{type:String,required:true},
+    price:{type:Number,required:true},
+},
+{
+    timestamps:true
+});
+
+
+export const additionCart=mongoose.model('CartItems',newSchema);
 
 export const collection=mongoose.model('registration',collectionSchema);
+
 
 

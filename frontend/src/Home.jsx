@@ -15,7 +15,6 @@ export const Home = () => {
   ];
 
   const [index, setIndex] = useState(0);
-  const [more,setmore]=useState(false);
   useEffect(() => {
     const interval = setInterval(() => {
       setIndex((prev) => (prev + 1) % images.length);

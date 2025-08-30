@@ -2,11 +2,28 @@ import React from "react";
 import data from "./Product.json";
 import "../style/product.css";  // 👈 Import CSS here
 import { useState } from "react";
-import { useAuth } from "./auth/Auth.jsx";
+// import { useAuth } from "./auth/Auth.jsx";
 
 export const Product = () => {
-  const {addToCart}=useAuth();
-  
+  const storedUser = localStorage.getItem("user");
+
+  const user=storedUser ? JSON.parse(storedUser):null;
+  // const {addToCart}=useAuth();
+  const addToCart=async(curelem)=>{
+    console.log(curelem);
+
+    const response=await fetch("http://localhost:3000/buy/add/cart",{
+      method:"POST",
+      headers:{
+        'Content-Type':"application/json",
+      },
+      body:JSON.stringify({
+        curelem,
+        user
+      }),
+    })
+  }
+
   return (
     <ul>
       {data.map((curelem) => {
