@@ -28,13 +28,13 @@ const collectionSchema=new Schema({
 });
 
 const newSchema=new Schema({
-    _id:{type:String,required:true},
+    // _id:{type:String,required:true},
     email:{type:String,required:true,lowercase:true},
-    productId:{type:String,required:true},
+    id:{type:String,required:true},
     src:{type:String,required:true},
     name:{type:String,required:true},
     Description:{type:String,required:true},
-    price:{type:Number,required:true},
+    price:{type:String,required:true},
 },
 {
     timestamps:true

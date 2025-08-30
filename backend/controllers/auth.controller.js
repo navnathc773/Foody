@@ -1,5 +1,5 @@
 import express from "express";
-import { generateToken, getEmailData, hashedPassword, insertData, isEmailExist, isPasswordSame } from "../models/auth.model.js";
+import { generateToken, getEmailData, hashedPassword, insertCart, insertData, isEmailExist, isPasswordSame } from "../models/auth.model.js";
 
 const router=express.Router();
 
@@ -48,7 +48,13 @@ router.post('/verify',async(req,res)=>{
 router.post('/cart',async(req,res)=>{
   const {id,src,name,Description,price}=req.body.curelem;
   const {_id,email}=req.body.user;
-  console.log(email);
+  // console.log(email);
+
+  const insertion=await insertCart(email,id,src,name,Description,price);
+  
+  if(insertion){
+    console.log('sdfkf');
+  }
 })
 export const authCart=router;
 export const authLogin=router;

@@ -1,4 +1,4 @@
-import { collection } from "../db/auth.db.js";
+import { additionCart, collection } from "../db/auth.db.js";
 import bcrypt from "bcrypt";
 import jwt from "jsonwebtoken";
 export const insertData=async(name,email,mobileno,password)=>{
@@ -36,5 +36,9 @@ export const generateToken=(email,password)=>{
   return jwt.sign({email,password},'asdf',{
     expiresIn:"2m",
   });
+}
+
+export const insertCart=async(email,id,src,name,Description,price)=>{
+    return await additionCart.insertMany({email,id,src,name,Description,price});
 }
 
