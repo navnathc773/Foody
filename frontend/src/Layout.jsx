@@ -14,6 +14,8 @@ export const Layout = () => {
   const [isLogin, setIsLogin] = useState(false);
   const [open, setOpen] = useState(false);
   const navigate=useNavigate();
+  const { cartitems } = useAuth();
+
   const[logo,setlogo]=useState({
     email:"",
     password:"",
@@ -133,9 +135,15 @@ const handlelogOut=()=>{
           <NavLink to="/">Home</NavLink>
           <NavLink to="/About">About</NavLink>
           <NavLink to="/Contact">Contact</NavLink>
-          <NavLink to="/Cart">
-            <FaShoppingCart/>
-          </NavLink>
+          <NavLink to="/Cart" className="cart-link">
+  <div className="cart-icon-wrapper">
+    <FaShoppingCart className="cart-icon" />
+    {cartitems.length > 0 && (
+      <span className="cart-count">{cartitems.length}</span>
+    )}
+  </div>
+</NavLink>
+
           {
             isLoggedIn ? 
             <>

@@ -4,11 +4,17 @@ export const AuthContext = createContext();
 
 export const AuthProvider = ({ children }) => {
   const [token, setToken] = useState(() => localStorage.getItem("token"));
+  const [cartitems,setCartItems]=useState([]);
 
   const storeToken = (serverToken) => {
     localStorage.setItem("token", serverToken);
     setToken(serverToken);
   };
+
+  const addToCart=(item)=>{
+    alert("Product added to cart");
+    setCartItems((prev)=>([...prev,item]));
+  }
 
   const logout = () => {
     localStorage.removeItem("token");
@@ -18,7 +24,7 @@ export const AuthProvider = ({ children }) => {
   const isLoggedIn = !!token; // true if token exists
 
   return (
-    <AuthContext.Provider value={{ token, storeToken, logout, isLoggedIn }}>
+    <AuthContext.Provider value={{ token, storeToken, logout, isLoggedIn,cartitems,addToCart}}>
       {children}
     </AuthContext.Provider>
   );
