@@ -1,6 +1,6 @@
 import express from "express";
 import cors from "cors";
-import { authCart, authgetData, authLogin, authRegister } from "./controllers/auth.controller.js";
+import { authCart, authDelete, authgetData, authLogin, authRegister } from "./controllers/auth.controller.js";
 const app=express();
 const PORT=3000;
 
@@ -19,7 +19,9 @@ app.use('/login',authLogin);
 
 app.use('/buy/add/',authCart);
 
-app.use('/getData/add',authgetData)
+app.use('/getData/add',authgetData);
+
+app.use('/delete/cart',authDelete);
 
 app.listen(PORT,()=>{
     console.log(`Server is listening on PORT ${PORT}`);

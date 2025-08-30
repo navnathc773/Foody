@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import "../style/cart.css";
+import { MdDelete } from "react-icons/md";
 
 export const Cart = () => {
   const storedUser = localStorage.getItem("user");
@@ -18,7 +19,6 @@ export const Cart = () => {
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify({ email }),
         });
-
         const data = await response.json();
         setCartItems(Array.isArray(data) ? data : []);
       } catch (err) {
@@ -29,6 +29,23 @@ export const Cart = () => {
     fetchCart();
   }, [email]);
 
+  const handleDelete=async(id)=>{
+    console.log(id);
+
+    const response=await fetch('http://localhost:3000/delete/cart/confirm',{
+      method:"DELETE",
+      headers:{
+        'Content-Type':'application/json',
+      },
+      body:JSON.stringify({id}),
+    })
+
+    if(response.ok){
+      const local=await response.json();
+      alert(local.msg);
+      setCartItems((prev)=>prev.filter((item)=>item._id!==id))
+    }
+  }
   return (
     <div className="cart-container">
       {cartItems.length > 0 ? (
@@ -42,6 +59,7 @@ export const Cart = () => {
                 <span className="price">₹{item.price}</span>
                 <button className="buy-btn">Buy Now</button>
               </div>
+              <button onClick={()=>handleDelete(item._id)}><MdDelete /></button>
             </div>
           ))}
         </div>

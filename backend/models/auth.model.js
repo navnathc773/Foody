@@ -42,3 +42,13 @@ export const insertCart=async(email,id,src,name,Description,price)=>{
     return await additionCart.insertMany({email,id,src,name,Description,price});
 }
 
+export const deleteCart=async(id)=>{
+    const logo=await additionCart.deleteOne({_id:id});
+    if(logo){
+        return true;
+    }
+    else{
+        return false;
+    }
+}
+

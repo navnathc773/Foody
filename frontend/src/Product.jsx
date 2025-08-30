@@ -11,7 +11,6 @@ export const Product = () => {
   // const {addToCart}=useAuth();
   const addToCart=async(curelem)=>{
     console.log(curelem);
-
     const response=await fetch("http://localhost:3000/buy/add/cart",{
       method:"POST",
       headers:{
@@ -22,6 +21,13 @@ export const Product = () => {
         user
       }),
     })
+
+    if(response.ok){
+      alert('product added to cart');
+    }
+    else{
+      alert('product is already added to cart');
+    }
   }
 
   return (
