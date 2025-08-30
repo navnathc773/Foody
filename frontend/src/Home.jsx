@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import "../style/first.css";
 import { Product } from "./Product";
 import { Glimpse } from "./Glimpse";
+import { Accordian } from "./Accordian";
 // import { Accordian } from "./Accordian";
 
 export const Home = () => {
@@ -49,11 +50,18 @@ export const Home = () => {
     <div>
       <Glimpse />
     </div>
+    <div className="delivery">
+  <img src="https://i.ibb.co/xt1s0nH7/Chat-GPT-Image-Aug-30-2025-10-26-18-AM.png" alt="Free Delivery" />
+  <div className="delivery-text">
+    <h3>🎉 Enjoy Free Delivery on Orders Over ₹999!</h3>
+    <h3>🚚 Free Shipping for Orders ₹999+ – Shop More, Save More!</h3>
+    <h3>Hurry! Get Free Delivery When You Spend ₹999 or More!</h3>
+    <h3>🛒 Your Cart Deserves Free Delivery! Just ₹999 Away!</h3>
+  </div>
+</div>
+
     <div>
-      {/* <img src="https://i.ibb.co/7N0fQZW5/delivery-pica.png" width="100%" alt="" /> */}
-    </div>
-    <div>
-      {/* <Accordian /> */}
+      <Accordian />
     </div>
     </>
   );
