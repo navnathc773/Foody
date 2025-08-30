@@ -2,7 +2,7 @@ import { useAuth } from "./auth/Auth.jsx";
 import "../style/cart.css";   
 import { FaPlus, FaMinus } from "react-icons/fa";
 import { useEffect, useState } from "react";
-import { MdDelete } from "react-icons/md";
+// import { MdDelete } from "react-icons/md";
 
 export const Cart = () => {
   const { cartitems } = useAuth();
@@ -53,9 +53,6 @@ export const Cart = () => {
                   <p className="cart-desc">{curelem.Description}</p>
                   
                   <div className="cart-price">
-                    <div className="deletion">
-                        <button><MdDelete /></button>
-                    </div>
                     <span>₹{curelem.price}</span>
                     <div className="quantity-control">
                       <button 
