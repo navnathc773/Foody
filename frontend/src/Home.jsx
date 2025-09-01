@@ -48,9 +48,6 @@ export const Home = () => {
       <Product />
     </div>
     <div>
-        <h3 className="view-more">.....View More</h3>
-    </div>
-    <div>
       <Glimpse />
     </div>
     <div className="delivery">

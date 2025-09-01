@@ -4,8 +4,11 @@ import "../style/product.css";
 export const Product = () => {
   const storedUser = localStorage.getItem("user");
   const [data, setData] = useState([]);
+  const [visibleCount,setvisibleCount]=useState(5);
   const user = storedUser ? JSON.parse(storedUser) : null;
-
+  const handleViewMore=()=>{
+    setvisibleCount((prev)=>prev+5);
+  }
   const addToCart = async (curelem) => {
     console.log(curelem);
     const response = await fetch("http://localhost:3000/buy/add/cart", {
@@ -42,8 +45,9 @@ export const Product = () => {
   }, []);
 
   return (
+    <div className="product-wrapper">
     <div className="product-container">
-      {data.map((curelem) => (
+      {data.slice(0,visibleCount).map((curelem) => (
         <div className="product-card" key={curelem.id}>
           <img src={curelem.src} alt={curelem.name} className="product-img" />
           <div className="product-info">
@@ -61,6 +65,13 @@ export const Product = () => {
           </div>
         </div>
       ))}
+    </div>
+
+    {visibleCount < data.length && (
+      <div className="view-more-container"> 
+      <button className="btn view-more-btn" onClick={handleViewMore}>...View More</button>
+      </div>
+    )}
     </div>
   );
 };
