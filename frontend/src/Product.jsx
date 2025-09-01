@@ -28,7 +28,8 @@ export const Product = () => {
 
   const loadedProduct = async () => {
     try {
-      const res = await fetch("/api/getAll");
+      const res = await fetch("/api/");
+      console.log(res);
       const local = await res.json();
       setData(local.msg);
     } catch (error) {
