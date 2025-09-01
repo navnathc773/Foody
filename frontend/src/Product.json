@@ -26,5 +26,55 @@
         "name":"Luchi Aaloo Dum",
         "Description":"Luchi Aaloo Dum is a classic Bengali delicacy that pairs soft, golden, deep-fried flatbreads (luchi) with a spicy, flavorful potato curry (aaloo dum). ",
         "price":"100/- only"
+    },
+    {
+        "id":"5",
+        "src":"https://res.cloudinary.com/de0gfcyix/image/upload/v1756744267/WhatsApp_Image_2025-08-23_at_17.32.11_7c8e87c9_re4tlk.jpg",
+        "name":"Chocolate Dry Fruit Cake",
+        "Description":"Chocolate Dry Fruit Cake is a rich and indulgent delight that perfectly blends the deep, velvety taste of chocolate with the natural sweetness and crunch of assorted dry fruits.",
+        "price":"650/- only"
+    },
+    {
+        "id":"6",
+        "src":"https://res.cloudinary.com/de0gfcyix/image/upload/v1756744661/WhatsApp_Image_2025-08-23_at_17.29.25_d4e05daf_hal4zj.jpg",
+        "name":"Sourdough Pizza",
+        "Description":"Sourdough Pizza is a flavorful twist on the classic, made with naturally fermented sourdough starter instead of commercial yeast. The slow fermentation process gives the crust a unique tangy flavor, airy texture, and crisp golden edges.",
+        "price":"200/- only"
+    },
+    {
+        "id":"7",
+        "src":"https://res.cloudinary.com/de0gfcyix/image/upload/v1756744475/WhatsApp_Image_2025-08-23_at_17.28.34_739fb315_miy6jc.jpg",
+        "name":"Nan Khatai",
+        "Description":"Nankhatai is a classic Indian shortbread cookie that melts in your mouth with every bite. Made from a simple blend of flour, ghee, sugar, and a touch of cardamom, these cookies are crisp on the outside and light, crumbly inside.",
+        "price":"150/- only"
+    },
+    {
+        "id":"8",
+        "src":"https://res.cloudinary.com/de0gfcyix/image/upload/v1756744553/WhatsApp_Image_2025-08-23_at_17.31.16_5362a218_yt4ec2.jpg",
+        "name":"Refined Flour Dry Fruit Cake",
+        "Description":"Refined Flour Dry Fruit Cake is a soft, spongy, and richly flavored delight made with fine refined flour that gives it a smooth texture and perfect rise. Packed with the natural sweetness of raisins, dates, figs, and the crunch of almonds, cashews, and walnuts, every slice is a burst of flavor and festivity.",
+        "price":"300/- only"
+    },
+    {
+        "id":"9",
+        "src":"https://res.cloudinary.com/de0gfcyix/image/upload/v1756744391/WhatsApp_Image_2025-08-23_at_17.27.55_bd457b41_try1q3.jpg",
+        "name":"Pizza",
+        "Description":"Pizza is a world-loved dish that combines a soft, chewy crust with a rich layer of tomato sauce, gooey melted cheese, and a variety of toppings ranging from fresh vegetables to flavorful meats. Baked to perfection, it offers the perfect balance of crispy edges, melted cheese pulls, and a burst of savory flavors in every bite.",
+        "price":"250/- only"
+    },
+    {
+        "id":"10",
+        "src":"https://res.cloudinary.com/de0gfcyix/image/upload/v1756744838/WhatsApp_Image_2025-08-23_at_17.27.02_22c79fcb_bxht5l.jpg",
+        "name":"Cup Cakes with Pastry Cream Topping",
+        "Description":"Cupcakes with Pastry Cream Topping are the perfect blend of soft, moist cake and rich, velvety cream. Each cupcake is baked to fluffy perfection, then topped with a smooth, luscious layer of classic pastry cream that adds a luxurious touch of sweetness.",
+        "price":"50/- only"
+    },
+    {
+        "id":"11",
+        "src":"https://res.cloudinary.com/de0gfcyix/image/upload/v1756744943/WhatsApp_Image_2025-08-23_at_17.30.31_1e0962b9_zhedat.jpg",
+        "name":"Almond Oats cookies and then Ragi cookies",
+        "Description":"Almond Oats Cookies are wholesome, crunchy delights made with the nutty richness of almonds and the hearty goodness of oats. Lightly sweetened and perfectly baked, these cookies offer a balance of crunch and chewiness, making them both nutritious and satisfying.",
+        "price":"90/- only"
     }
+
 ]

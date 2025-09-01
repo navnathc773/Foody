@@ -1,63 +1,65 @@
-import React, { useEffect } from "react";
-import data from "./Product.json";
-import "../style/product.css";  // 👈 Import CSS here
-import { useState } from "react";
-// import { useAuth } from "./auth/Auth.jsx";
+import React, { useEffect, useState } from "react";
+import "../style/product.css";  
 
 export const Product = () => {
   const storedUser = localStorage.getItem("user");
+  const [data, setData] = useState([]);
+  const user = storedUser ? JSON.parse(storedUser) : null;
 
-  const user=storedUser ? JSON.parse(storedUser):null;
-  // const {addToCart}=useAuth();
-  const addToCart=async(curelem)=>{
+  const addToCart = async (curelem) => {
     console.log(curelem);
-    const response=await fetch("http://localhost:3000/buy/add/cart",{
-      method:"POST",
-      headers:{
-        'Content-Type':"application/json",
+    const response = await fetch("http://localhost:3000/buy/add/cart", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
       },
-      body:JSON.stringify({
+      body: JSON.stringify({
         curelem,
-        user
+        user,
       }),
-    })
+    });
 
-    if(response.ok){
-      alert('product added to cart');
+    if (response.ok) {
+      alert("✅ Product added to cart");
+    } else {
+      alert("⚠️ Product is already in the cart");
     }
-    else{
-      alert('product is already added to cart');
-    }
-  }
+  };
 
   const loadedProduct = async () => {
-  try {
-    const res = await fetch("/api/getAll");
-    const data = await res.json();
-    console.log(data);
-  } catch (error) {
-    console.error("Error fetching products:", error);
-  }
-};
+    try {
+      const res = await fetch("/api/getAll");
+      const local = await res.json();
+      setData(local.msg);
+    } catch (error) {
+      console.error("Error fetching products:", error);
+    }
+  };
 
-useEffect(() => {
-  loadedProduct();
-}, []);
+  useEffect(() => {
+    loadedProduct();
+  }, []);
 
   return (
-    <ul>
-
-      {/* {data.map((curelem) => {
-        return (
-          <li key={curelem.id}>
-            <img src={curelem.src} alt={curelem.name} />
-            <p>{curelem.name}</p>
-            <p>{curelem.Description}</p>
-            <p>{curelem.price}</p>
-            <button onClick={()=>addToCart(curelem)}>Add To Cart</button>
-          </li>
-        );
-      })} */}
-    </ul>
+    <div className="product-container">
+      {data.map((curelem) => (
+        <div className="product-card" key={curelem.id}>
+          <img src={curelem.src} alt={curelem.name} className="product-img" />
+          <div className="product-info">
+            <h3 className="product-title">{curelem.name}</h3>
+            <p className="product-price">₹ {curelem.price}</p>
+            <div className="product-actions">
+              <button className="btn view-btn">View Details</button>
+              <button
+                className="btn cart-btn"
+                onClick={() => addToCart(curelem)}
+              >
+                🛒 Add To Cart
+              </button>
+            </div>
+          </div>
+        </div>
+      ))}
+    </div>
   );
 };
