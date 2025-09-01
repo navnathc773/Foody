@@ -19,7 +19,7 @@ export const Glimpse = () => {
 
      <div class="glimpse-card">
       <div class="video-wrapper">
-        <iframe class="glimpse-video" src="https://res.cloudinary.com/de0gfcyix/video/upload/v1756708316/Brown_Yellow_Modern_Bold_Pizza_Restaurant_Presentation_ca9uzu.mp4" autoPlay></iframe>
+        <iframe class="glimpse-video" src="https://res.cloudinary.com/de0gfcyix/video/upload/v1756713370/download_fj2pom.mp4" autoPlay></iframe>
       </div>
       <div class="glimpse-content">
         <h3 class="dish-title">Donuts</h3>
