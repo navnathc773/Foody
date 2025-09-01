@@ -3,32 +3,36 @@ import "../style/first.css";
 import { Product } from "./Product";
 import { Glimpse } from "./Glimpse";
 import { Accordian } from "./Accordian";
+import { GlimpseCard } from "./GlimpseCard";
 // import { Accordian } from "./Accordian";
 
 export const Home = () => {
-  const images = [
-    "https://i.ibb.co/0pFM0XQP/Screenshot-2025-08-29-184401.png",
-    "https://i.ibb.co/BHfkWBfj/Black-and-Orange-Pizza-Recipe-Food-You-Tube-Thumbnail.png",
-    "https://i.ibb.co/wFT1Db54/Foody-cookies.png",
-    "https://i.ibb.co/ZpJRnBDr/Yellow-and-Brown-Organic-Abstract-Food-You-Tube-Thumbnail-1.png",
-    "https://i.ibb.co/bgLQDf5c/Pink-Colorful-Special-Donut-Promo-Banner.png"
-  ];
+  // const images = [
+  //   "https://res.cloudinary.com/de0gfcyix/image/upload/v1756557333/Screenshot_2025-08-29_184401_dcriuc.png",
+  //   "https://res.cloudinary.com/de0gfcyix/image/upload/v1756705759/Black_and_Orange_Pizza_Recipe_Food_YouTube_Thumbnail_xn7wma.png",
+  //   "https://res.cloudinary.com/de0gfcyix/image/upload/v1756706524/Brown_and_Beige_Cookies_Illustrative_Homemade_Healthy_Cookies_YouTube_Thumbnail_yy2xq0.png",
+  //   "https://res.cloudinary.com/de0gfcyix/image/upload/v1756706788/Yellow_and_Brown_Simple_Promotion_Sweet_Cake_Food_Banner_xhl7iv.png",
+  //   "https://res.cloudinary.com/de0gfcyix/image/upload/v1756707488/Brown_and_Beige_Modern_Sweet_Cake_Food_YouTube_Thumbnail_zptjv9.png"
+  // ];
 
-  const [index, setIndex] = useState(0);
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setIndex((prev) => (prev + 1) % images.length);
-    }, 3000);
-    return () => clearInterval(interval);
-  }, [images.length]);
+  // const [index, setIndex] = useState(0);
+  // useEffect(() => {
+  //   const interval = setInterval(() => {
+  //     setIndex((prev) => (prev + 1) % images.length);
+  //   }, 3000);
+  //   return () => clearInterval(interval);
+  // }, [images.length]);
 
   return (
     <>
-    <div className="slider-container">
+    <div className="pizza">
+      <GlimpseCard />
+    </div>
+    {/* <div className="slider-container">
       <img src={images[index]} alt="slider" className="slider-image" />
 
       {/* Dots */}
-      <div className="slider-dots">
+      {/* <div className="slider-dots">
         {images.map((_, i) => (
           <span
             key={i}
@@ -37,7 +41,7 @@ export const Home = () => {
           />
         ))}
       </div>
-    </div>
+    </div>  */}
     <div className="product">
       <h1>Our Products</h1>
       <br />

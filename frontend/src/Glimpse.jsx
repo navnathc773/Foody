@@ -9,7 +9,7 @@ export const Glimpse = () => {
   <div class="glimpse-row">
     <div class="glimpse-card">
       <div class="video-wrapper">
-        <iframe class="glimpse-video" src="https://go.screenpal.com/player/cTjUDFn2SvO?width=100%&height=100%&ff=1&title=0" allowfullscreen></iframe>
+        <iframe class="glimpse-video" src="https://res.cloudinary.com/de0gfcyix/video/upload/v1756707606/WhatsApp_Video_2025-08-23_at_17.29.56_ad245fea_hhjmqw.mp4" allowfullscreen></iframe>
       </div>
       <div class="glimpse-content">
         <h3 class="dish-title">Carob Cake</h3>
@@ -17,19 +17,19 @@ export const Glimpse = () => {
       </div>
     </div>
 
-    <div class="glimpse-card">
+     <div class="glimpse-card">
       <div class="video-wrapper">
-        <iframe class="glimpse-video" src="https://go.screenpal.com/player/cTjUDUn2Sx2?width=100%&height=100%&ff=1&title=0" allowfullscreen></iframe>
+        <iframe class="glimpse-video" src="https://res.cloudinary.com/de0gfcyix/video/upload/v1756708316/Brown_Yellow_Modern_Bold_Pizza_Restaurant_Presentation_ca9uzu.mp4" autoPlay></iframe>
       </div>
       <div class="glimpse-content">
         <h3 class="dish-title">Donuts</h3>
         <p class="dish-description">Fluffy, golden, and perfectly sweet — our donuts are crafted to bring you joy with every bite.</p>
       </div>
-    </div>
-
+    </div> 
+     
     <div class="glimpse-card">
       <div class="video-wrapper">
-        <iframe class="glimpse-video" src="https://go.screenpal.com/player/cTjUDyn2SxN?width=100%&height=100%&ff=1&title=0" allowfullscreen></iframe>
+        <iframe class="glimpse-video" src="https://res.cloudinary.com/de0gfcyix/video/upload/v1756707703/biscuits_stswuw.mp4" allowfullscreen></iframe>
       </div>
       <div class="glimpse-content">
         <h3 class="dish-title">Biscuits</h3>
