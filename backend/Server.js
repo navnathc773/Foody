@@ -8,6 +8,7 @@ const corsoptions={
     origin:"http://localhost:5173",
     method:"GET,POST,PUT,PATCH,DELETE,HEAD",
 }
+app.use(cors());
 
 app.use(cors(corsoptions));
 

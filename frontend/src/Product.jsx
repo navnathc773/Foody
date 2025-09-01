@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import data from "./Product.json";
 import "../style/product.css";  // 👈 Import CSS here
 import { useState } from "react";
@@ -30,9 +30,24 @@ export const Product = () => {
     }
   }
 
+  const loadedProduct = async () => {
+  try {
+    const res = await fetch("/api/getAll");
+    const data = await res.json();
+    console.log(data);
+  } catch (error) {
+    console.error("Error fetching products:", error);
+  }
+};
+
+useEffect(() => {
+  loadedProduct();
+}, []);
+
   return (
     <ul>
-      {data.map((curelem) => {
+
+      {/* {data.map((curelem) => {
         return (
           <li key={curelem.id}>
             <img src={curelem.src} alt={curelem.name} />
@@ -42,7 +57,7 @@ export const Product = () => {
             <button onClick={()=>addToCart(curelem)}>Add To Cart</button>
           </li>
         );
-      })}
+      })} */}
     </ul>
   );
 };
