@@ -4,6 +4,7 @@ import { Product } from "./Product";
 import { Glimpse } from "./Glimpse";
 import { Accordian } from "./Accordian";
 import { GlimpseCard } from "./GlimpseCard";
+import { Special } from "./Special";
 // import { Accordian } from "./Accordian";
 
 export const Home = () => {
@@ -49,6 +50,9 @@ export const Home = () => {
     </div>
     <div>
       <Glimpse />
+    </div>
+    <div>
+      <Special />
     </div>
     <div className="delivery">
   <img src="https://i.ibb.co/xt1s0nH7/Chat-GPT-Image-Aug-30-2025-10-26-18-AM.png" alt="Free Delivery" />
