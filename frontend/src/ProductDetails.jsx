@@ -6,6 +6,10 @@ export const ProductDetails = () => {
   const data=logo.msg;
   console.log(data);
   return (
+    <>
+    <div>
+        <a href="/"><button>Go Back</button></a>
+    </div>
     <div className="movie-container">
       <div className="movie-card">
         <img className="movie-poster" src={data[0].src} alt={logo.Title} />
@@ -16,5 +20,6 @@ export const ProductDetails = () => {
         </div>
       </div>
     </div>
+    </>
   );
 };

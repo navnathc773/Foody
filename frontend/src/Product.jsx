@@ -54,7 +54,7 @@ export const Product = () => {
             <h3 className="product-title">{curelem.name}</h3>
             <p className="product-price">₹ {curelem.price}</p>
             <div className="product-actions">
-              <NavLink to={`/${curelem.id}`}>View Details</NavLink>
+              <NavLink to={`/${curelem.id}`}><button>View Details</button></NavLink>
 
               <button
                 className="btn cart-btn"
