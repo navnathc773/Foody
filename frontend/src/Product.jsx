@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import "../style/product.css";  
 import { NavLink } from "react-router-dom";
+
 export const Product = () => {
   const storedUser = localStorage.getItem("user");
   const [data, setData] = useState([]);
