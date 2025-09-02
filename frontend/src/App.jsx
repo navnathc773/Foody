@@ -4,6 +4,8 @@ import { Home } from "./Home.jsx";
 import { About } from "./About.jsx";
 import { Contact } from "./Contact.jsx";
 import { Cart } from "./Cart.jsx";
+import { ProductDetails } from "./ProductDetails.jsx";
+import { ProductLoader } from "./ProductLoader.jsx";
 
 export const App = () => {
   const router = createBrowserRouter([
@@ -13,8 +15,14 @@ export const App = () => {
       children: [
         {
           path: "/", 
-          element: <Home />  
+          element: <Home />,
         },
+        {
+          path:"/:id",
+          element:<ProductDetails />,
+          loader:ProductLoader,
+        },
+      
         {
           path: "/About",
           element: <About />

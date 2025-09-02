@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import "../style/product.css";  
-
+import { NavLink } from "react-router-dom";
 export const Product = () => {
   const storedUser = localStorage.getItem("user");
   const [data, setData] = useState([]);
@@ -31,7 +31,7 @@ export const Product = () => {
 
   const loadedProduct = async () => {
     try {
-      const res = await fetch("/api/");
+      const res = await fetch("/api/getAll");
       console.log(res);
       const local = await res.json();
       setData(local.msg);
@@ -54,7 +54,8 @@ export const Product = () => {
             <h3 className="product-title">{curelem.name}</h3>
             <p className="product-price">₹ {curelem.price}</p>
             <div className="product-actions">
-              <button className="btn view-btn">View Details</button>
+              <NavLink to={`/${curelem.id}`}>View Details</NavLink>
+
               <button
                 className="btn cart-btn"
                 onClick={() => addToCart(curelem)}

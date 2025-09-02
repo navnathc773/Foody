@@ -6,7 +6,7 @@ export default defineConfig({
   server: {
     proxy: {
       "/api": {
-        target: "https://foodierest-production-7415.up.railway.app/getAll",
+        target: "https://foodierest-production-b593.up.railway.app/",
         changeOrigin: true,
         rewrite: (path) => path.replace(/^\/api/, ""),
       },
