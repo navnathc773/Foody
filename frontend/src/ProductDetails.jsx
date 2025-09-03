@@ -2,6 +2,27 @@ import { useLoaderData } from "react-router-dom";
 import '../style/data.css';
 export const ProductDetails = () => {
   const logo = useLoaderData();
+  const storedUser = localStorage.getItem("user");
+  const user = storedUser ? JSON.parse(storedUser) : null;
+  const addToCart = async (curelem) => {
+    console.log(curelem);
+    const response = await fetch("http://localhost:3000/buy/add/cart", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        curelem,
+        user,
+      }),
+    });
+
+    if (response.ok) {
+      alert("✅ Product added to cart");
+    } else {
+      alert("⚠️ Product is already in the cart");
+    }
+  };
 
   const data=logo.msg;
   console.log(data);
@@ -16,7 +37,12 @@ export const ProductDetails = () => {
         <div className="movie-info">
           <h2 className="movie-title">{data[0].name}</h2>
           <p className="movie-plot">{data[0].Description}</p>
-          <button className="watch-btn">Add to Cart</button>
+          <button
+                className="btn cart-btn"
+                onClick={() => addToCart(data)}
+              >
+                🛒 Add To Cart
+              </button>
         </div>
       </div>
     </div>

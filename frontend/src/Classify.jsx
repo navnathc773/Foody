@@ -5,6 +5,28 @@ export const Classify = () => {
   const items = useLoaderData();
   const data = items.msg;
   const [visibleCount, setVisibleCount] = useState(5);
+  const storedUser = localStorage.getItem("user");
+  const user = storedUser ? JSON.parse(storedUser) : null;
+  
+  const addToCart = async (curelem) => {
+    console.log(curelem);
+    const response = await fetch("http://localhost:3000/buy/add/cart", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        curelem,
+        user,
+      }),
+    });
+
+    if (response.ok) {
+      alert("✅ Product added to cart");
+    } else {
+      alert("⚠️ Product is already in the cart");
+    }
+  };
 
   return (
     <div className="classify-wrapper">
@@ -22,7 +44,12 @@ export const Classify = () => {
                 <NavLink to={`/product/${curelem.id}`}>
                   <button className="classify-btn classify-view">🔍 View Details</button>
                 </NavLink>
-                <button className="classify-btn classify-cart">🛒 Add To Cart</button>
+                <button
+                className="btn cart-btn"
+                onClick={() => addToCart(curelem)}
+              >
+                🛒 Add To Cart
+              </button>
               </div>
             </div>
           </div>

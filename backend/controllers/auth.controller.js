@@ -46,12 +46,12 @@ router.post('/verify',async(req,res)=>{
 })
 
 router.post('/cart',async(req,res)=>{
-  const {id,src,name,Description,price}=req.body.curelem;
+  const {id,src,name,Description,Price}=req.body.curelem;
   const {_id,email}=req.body.user;
 
   const exist = await additionCart.find({ id: id,email:email });
   if (exist.length === 0) {
-    const insertion = await insertCart(email, id, src, name, Description, price);
+    const insertion = await insertCart(email, id, src, name, Description, Price);
       if (insertion) {
         return res.status(200).json({ msg: "Item added to Cart" });
       }
