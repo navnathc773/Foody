@@ -45,22 +45,23 @@ router.post('/verify',async(req,res)=>{
   }
 })
 
-router.post('/cart',async(req,res)=>{
-  const {id,src,name,Description,Price}=req.body.curelem;
-  const {_id,email}=req.body.user;
+  router.post('/cart',async(req,res)=>{
+    console.log(req.body);
+    const {id,src,name,Description,Price}=req.body.curelem;
+    const {_id,email}=req.body.user;
 
-  const exist = await additionCart.find({ id: id,email:email });
-  if (exist.length === 0) {
-    const insertion = await insertCart(email, id, src, name, Description, Price);
-      if (insertion) {
-        return res.status(200).json({ msg: "Item added to Cart" });
-      }
-  } 
-  else {
-        return res.status(400).json({ msg: "Item already added to Cart" });
-  }
+    const exist = await additionCart.find({ id: id,email:email });
+    if (exist.length === 0) {
+      const insertion = await insertCart(email, id, src, name, Description, Price);
+        if (insertion) {
+          return res.status(200).json({ msg: "Item added to Cart" });
+        }
+    } 
+    else {
+          return res.status(400).json({ msg: "Item already added to Cart" });
+    }
 
-  })
+    })
 
 router.post('/cartOne', async (req, res) => {
   try {

@@ -39,7 +39,7 @@ export const ProductDetails = () => {
           <p className="movie-plot">{data[0].Description}</p>
           <button
                 className="btn cart-btn"
-                onClick={() => addToCart(data)}
+                onClick={() => addToCart(data[0])}
               >
                 🛒 Add To Cart
               </button>
