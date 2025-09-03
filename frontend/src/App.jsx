@@ -6,6 +6,9 @@ import { Contact } from "./Contact.jsx";
 import { Cart } from "./Cart.jsx";
 import { ProductDetails } from "./ProductDetails.jsx";
 import { ProductLoader } from "./ProductLoader.jsx";
+import { Classify } from "./Classify.jsx";
+import { ClassLoader } from "./ClassLoader.jsx";
+
 
 export const App = () => {
   const router = createBrowserRouter([
@@ -18,11 +21,15 @@ export const App = () => {
           element: <Home />,
         },
         {
-          path:"/:id",
+          path:"/product/:id",
           element:<ProductDetails />,
           loader:ProductLoader,
         },
-      
+        {
+          path:"/category/:product",
+          element:<Classify />,
+          loader:ClassLoader,
+        },
         {
           path: "/About",
           element: <About />
@@ -34,7 +41,7 @@ export const App = () => {
         {
           path: "/Cart",
           element: <Cart />
-        }
+        },
       ]
     }
   ]);
