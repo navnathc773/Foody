@@ -11,7 +11,7 @@ export default defineConfig({
         rewrite: (path) => path.replace(/^\/api/, ""),
       },
       "/specialapi": {
-        target: "https://foodierest-production-14ff.up.railway.app",
+        target: "https://foodierest-production-a461.up.railway.app/",
         changeOrigin: true,
         rewrite: (path) => path.replace(/^\/specialapi/, ""),
       },
