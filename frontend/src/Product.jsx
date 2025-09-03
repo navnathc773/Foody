@@ -53,7 +53,7 @@ export const Product = () => {
           <img src={curelem.src} alt={curelem.name} className="product-img" />
           <div className="product-info">
             <h3 className="product-title">{curelem.name}</h3>
-            <p className="product-price">₹ {curelem.price}</p>
+            <p className="product-price">₹ {curelem.Price}</p>
             <div className="product-actions">
               <NavLink to={`/${curelem.id}`}><button>View Details</button></NavLink>
 
