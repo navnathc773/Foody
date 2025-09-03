@@ -1,15 +1,15 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import '../style/Special.css';
 
 export const Special = () => {
+  const [logo, setLogo] = useState([]);
+
   const localdata = async () => {
     try {
       const response = await fetch('/specialapi/getAll');
-      if (!response.ok) {
-        throw new Error(`HTTP error! status: ${response.status}`);
-      }
+      if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
       const data = await response.json();
-      console.log(data);
+      setLogo(data.msg);
     } catch (err) {
       console.error("Error fetching api2 data:", err);
     }
@@ -21,7 +21,17 @@ export const Special = () => {
 
   return (
     <>
-      <h1>dskfk</h1>
+    <div className='head'>
+      <h1>Special Attraction</h1>
+    </div>
+    <div className="special-container">
+      {logo.map((item) => (
+        <div className="krish-icon" key={item._id}>
+          <img src={item.src} alt={item.Category} />
+          <p>{item.Category}</p>
+        </div>
+      ))}
+    </div>
     </>
   );
 };

@@ -54,6 +54,9 @@ export const Home = () => {
     <div>
       <Special />
     </div>
+    <br />
+    <br />
+    <br />
     <div className="delivery">
   <img src="https://i.ibb.co/xt1s0nH7/Chat-GPT-Image-Aug-30-2025-10-26-18-AM.png" alt="Free Delivery" />
   <div className="delivery-text">
