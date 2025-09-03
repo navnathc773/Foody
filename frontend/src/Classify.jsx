@@ -1,38 +1,42 @@
 import { useLoaderData, NavLink } from "react-router-dom";
 import { useState } from "react";
-
+import '../style/classify.css';
 export const Classify = () => {
   const items = useLoaderData();
   const data = items.msg;
   const [visibleCount, setVisibleCount] = useState(5);
 
   return (
-    <div className="product-wrapper">
-      <div className="product-container">
+    <div className="classify-wrapper">
+      <h2 className="classify-title">✨ Explore Our Special Collection ✨</h2>
+      <div className="classify-container">
         {data.slice(0, visibleCount).map((curelem) => (
-          <div className="product-card" key={curelem._id}>
-            <img src={curelem.src} alt={curelem.name} className="product-img" />
-            <div className="product-info">
-              <h3 className="product-title">{curelem.name}</h3>
-              <p className="product-price">₹ {curelem.Price}</p>
-              <div className="product-actions">
+          <div className="classify-card" key={curelem._id}>
+            <div className="classify-img-box">
+              <img src={curelem.src} alt={curelem.name} className="classify-img" />
+            </div>
+            <div className="classify-info">
+              <h3 className="classify-name">{curelem.name}</h3>
+              <p className="classify-price">₹ {curelem.Price}</p>
+              <div className="classify-actions">
                 <NavLink to={`/product/${curelem.id}`}>
-                  <button className="btn">View Details</button>
+                  <button className="classify-btn classify-view">🔍 View Details</button>
                 </NavLink>
-                <button>
-                  🛒 Add To Cart
-                </button>
+                <button className="classify-btn classify-cart">🛒 Add To Cart</button>
               </div>
             </div>
           </div>
         ))}
       </div>
 
-      {/* view more button */}
+      {/* Load More Button */}
       {visibleCount < data.length && (
-        <div className="view-more">
-          <button onClick={() => setVisibleCount((prev) => prev + 5)}>
-            View More
+        <div className="classify-load-more">
+          <button
+            className="classify-btn classify-load"
+            onClick={() => setVisibleCount((prev) => prev + 5)}
+          >
+            Load More ⬇️
           </button>
         </div>
       )}
