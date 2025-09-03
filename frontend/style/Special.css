@@ -8,13 +8,13 @@
 }
 
 .krish-icon {
-  width: 100px;     
+  width: 120px;     
   text-align: center;
   font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
 
 .krish-icon img {
-  width: 90px;       
+  width: 100px;       
   height: 90px;
   object-fit: cover;
   border-radius: 50%; 
