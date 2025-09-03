@@ -27,7 +27,7 @@ export const Special = () => {
     <div className="special-container">
       {logo.map((item) => (
         <div className="krish-icon" key={item._id}>
-          <NavLink to={`/local/${item.Category}`}>
+          <NavLink to={`/${item.Category}`}>
           <img src={item.src} alt={item.Category} />
           </NavLink>
           <p>{item.Category}</p>
