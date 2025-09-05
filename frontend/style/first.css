@@ -85,6 +85,8 @@
   margin: 40px auto;
   gap: 30px; /* space between image and text */
   transition: transform 0.3s ease, box-shadow 0.3s ease;
+  position: relative;
+  top:300px;
 }
 
 .delivery:hover {
@@ -117,3 +119,16 @@
   top:10px;
 }
 
+.speciality {
+  display: flex;
+  justify-content: center; 
+  align-items: center; 
+  position: relative;
+  top:150px;
+      
+}
+
+.speciality img {
+  width: 800px;
+  height:450px;
+}

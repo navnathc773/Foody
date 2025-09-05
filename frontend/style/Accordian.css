@@ -1,4 +1,3 @@
-/* accordian.css */
 
 .accordian-container {
   display: flex;
@@ -8,6 +7,8 @@
   background-color: #f8f9fa;
   min-height: 100vh;
   font-family: Arial, sans-serif;
+  position: relative;
+  top:350px;
 }
 
 .accordian-container h1 {
