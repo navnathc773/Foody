@@ -1,107 +1,97 @@
-.classify-wrapper {
-  padding: 30px;
-  text-align: center;
-}
-
-.classify-title {
-  font-size: 28px;
-  font-weight: bold;
-  margin-bottom: 25px;
-  color: #333;
-  text-shadow: 1px 1px 3px rgba(0,0,0,0.15);
-}
-
 .classify-container {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); /* wider cards */
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); /* balanced width */
   gap: 25px;
 }
 
 .classify-card {
-  background: linear-gradient(135deg, #fff, #f9f9ff);
+  background: linear-gradient(135deg, #ffffff, #f3f3ff);
   border-radius: 18px;
-  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+  box-shadow: 0 6px 18px rgba(0,0,0,0.12);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   overflow: hidden;
-  padding: 15px;
+  padding: 18px;
+}
+
+.classify-title{
+  text-align: center;
 }
 
 .classify-card:hover {
-  transform: translateY(-8px) scale(1.02);
-  box-shadow: 0 10px 25px rgba(0,0,0,0.2);
-}
-
-.classify-img-box {
-  overflow: hidden;
-  border-radius: 12px;
+  transform: translateY(-10px) scale(1.02);
+  box-shadow: 0 12px 28px rgba(0,0,0,0.22);
 }
 
 .classify-img {
   width: 100%;
-  height: 200px;
+  height: 280px;  
   object-fit: cover;
+  border-radius: 14px;
   transition: transform 0.4s ease;
 }
 
 .classify-card:hover .classify-img {
-  transform: scale(1.1);
+  transform: scale(1.08);
 }
 
 .classify-info {
   margin-top: 15px;
+  text-align: center;
 }
 
 .classify-name {
-  font-size: 20px;
-  font-weight: 600;
-  margin-bottom: 5px;
-  color: #444;
+  font-size: 21px;
+  font-weight: 700;
+  margin-bottom: 6px;
+  color: #222;
 }
 
 .classify-price {
-  font-size: 18px;
-  color: #ff5722;
+  font-size: 19px;
+  color: #e63946;
   font-weight: bold;
-  margin-bottom: 12px;
+  margin-bottom: 14px;
 }
 
 .classify-actions {
   display: flex;
-  justify-content: space-between;
+  flex-direction: column; /* stack buttons */
   gap: 10px;
 }
 
 .classify-btn {
-  flex: 1;
-  padding: 8px 12px;
+  width: 100%;
+  padding: 10px 14px;
   border: none;
-  border-radius: 10px;
+  border-radius: 12px;
   cursor: pointer;
-  font-size: 14px;
+  font-size: 15px;
   font-weight: 600;
   transition: all 0.3s ease;
 }
 
 .classify-view {
-  background: #4cafef;
-  color: white;
+  background: #ffcc00; /* yellow */
+  color: #222;
+  font-weight: bold;
 }
 
 .classify-view:hover {
-  background: #2196f3;
+  background: #e6b800;
 }
 
 .classify-cart {
-  background: #ff9800;
+  background: #007bff; /* blue cart button */
   color: white;
+  font-weight: bold;
 }
 
 .classify-cart:hover {
-  background: #e68900;
+  background: #0056b3;
 }
 
 .classify-load-more {
-  margin-top: 20px;
+  margin-top: 25px;
 }
 
 .classify-load {
@@ -109,6 +99,9 @@
   background: #673ab7;
   color: white;
   border-radius: 15px;
+  font-size: 15px;
+  font-weight: 600;
+  transition: all 0.3s;
 }
 
 .classify-load:hover {

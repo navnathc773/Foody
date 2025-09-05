@@ -28,7 +28,7 @@ export const ProductDetails = () => {
   console.log(data);
   return (
     <>
-    <div>
+    <div className="logo">
         <a href="/"><button>Go Back</button></a>
     </div>
     <div className="movie-container">
@@ -38,7 +38,7 @@ export const ProductDetails = () => {
           <h2 className="movie-title">{data[0].name}</h2>
           <p className="movie-plot">{data[0].Description}</p>
           <button
-                className="btn cart-btn"
+                className="cart-btn" style={{fontSize:"20px",borderRadius:"5px"}}
                 onClick={() => addToCart(data[0])}
               >
                 🛒 Add To Cart

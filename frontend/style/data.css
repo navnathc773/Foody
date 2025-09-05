@@ -1,3 +1,11 @@
+.logo a button{
+  background-color:orange;
+  font-size: 18px;
+  border-radius: 5px;
+  color:white;
+  cursor: pointer;
+}
+
 .movie-container {
   display: flex;
   justify-content: center;
@@ -50,3 +58,4 @@
   border-radius: 8px;
   background: linear-gradient(135deg, #ff4b2b, #ff416c);
 }
+

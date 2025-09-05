@@ -41,17 +41,13 @@ export const Classify = () => {
               <h3 className="classify-name">{curelem.name}</h3>
               <p className="classify-price">₹ {curelem.Price}</p>
               <div className="classify-actions">
-                <NavLink to={`/product/${curelem.id}`}>
-                  <button className="classify-btn classify-view">🔍 View Details</button>
-                </NavLink>
-                <button
-                className="btn cart-btn"
-                onClick={() => addToCart(curelem)}
-              >
-                🛒 Add To Cart
-              </button>
-              </div>
-            </div>
+              <NavLink to={`/product/${curelem.id}`}>
+                <button className="classify-btn classify-view">🔍 View Details</button>
+              </NavLink>
+
+            <button className="classify-btn classify-cart" onClick={() => addToCart(curelem)}>🛒 Add To Cart</button>
+          </div>
+      </div>
           </div>
         ))}
       </div>

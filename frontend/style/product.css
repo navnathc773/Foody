@@ -71,7 +71,7 @@
 }
 
 .cart-btn {
-  background: #007bff; /* blue */
+  background: #007bff; 
   color: white;
   font-weight: bold;
 }
@@ -96,5 +96,5 @@
 }
 
 .view-more-btn:hover {
-  background: #d96700;
+  background:#d96700;
 }
