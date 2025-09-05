@@ -5,6 +5,7 @@ import { Glimpse } from "./Glimpse";
 import { Accordian } from "./Accordian";
 import { GlimpseCard } from "./GlimpseCard";
 import { Special } from "./Special";
+import { Footer } from "./Footer";
 // import { Accordian } from "./Accordian";
 
 export const Home = () => {
@@ -69,6 +70,9 @@ export const Home = () => {
 
     <div>
       <Accordian />
+    </div>
+    <div>
+      <Footer />
     </div>
     </>
   );
