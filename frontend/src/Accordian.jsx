@@ -1,28 +1,38 @@
 import { useState } from "react";
 import accord from "./Accordian.json";
 import "../style/accordian.css";
+import { FaPlus, FaMinus } from "react-icons/fa";
 
 export const Accordian = () => {
-  const [index, setIndex] = useState(null);
+  const [openIndex, setOpenIndex] = useState(null);
 
-  const toggle = (id) => {
-    setIndex(index === id ? null : id);
+  const toggle = (idx) => {
+    setOpenIndex(openIndex === idx ? null : idx);
   };
 
   return (
-    <div className="accordian-container">
-      <h1>Frequently Asked Questions</h1>
-      <ul className="accordian-list">
-        {accord.map((curelem) => (
+    <div className="faq-container">
+      <h1 className="faq-title">Frequently Asked Questions</h1>
+      <ul className="faq-list">
+        {accord.map((item, idx) => (
           <li
-            key={curelem.id}
-            className="accordian-item"
-            onClick={() => toggle(curelem.id)}
+            key={idx}
+            className={`faq-item ${openIndex === idx ? "active" : ""}`}
           >
-            <div className="accordian-question">{curelem.question}</div>
-            {index === curelem.id && (
-              <div className="accordian-answer">{curelem.answer}</div>
-            )}
+            <div className="faq-question" onClick={() => toggle(idx)}>
+              <span>{item.question}</span>
+              <span className="faq-icon">
+                {openIndex === idx ? <FaMinus /> : <FaPlus />}
+              </span>
+            </div>
+            <div
+              className="faq-answer"
+              style={{
+                maxHeight: openIndex === idx ? "300px" : "0",
+              }}
+            >
+              <p>{item.answer}</p>
+            </div>
           </li>
         ))}
       </ul>
