@@ -5,10 +5,10 @@ import { NavLink } from "react-router-dom";
 export const Product = () => {
   const storedUser = localStorage.getItem("user");
   const [data, setData] = useState([]);
-  const [visibleCount,setvisibleCount]=useState(5);
+  const [visibleCount,setvisibleCount]=useState(4);
   const user = storedUser ? JSON.parse(storedUser) : null;
   const handleViewMore=()=>{
-    setvisibleCount((prev)=>prev+5);
+    setvisibleCount((prev)=>prev+4);
   }
   const addToCart = async (curelem) => {
     console.log(curelem);
