@@ -122,11 +122,18 @@
   justify-content: center; 
   align-items: center; 
   position: relative;
-  top:150px;
-      
+  top: 150px;
 }
 
 .speciality img {
   width: 800px;
-  height:450px;
+  height: 450px;
+  border-radius: 20px; 
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3); 
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+.speciality img:hover {
+  transform: scale(1.05); 
+  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.5); 
 }
