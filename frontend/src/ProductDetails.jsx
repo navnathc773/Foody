@@ -1,6 +1,13 @@
 import { useLoaderData } from "react-router-dom";
 import '../style/data.css';
+import { useState } from "react";
 export const ProductDetails = () => {
+  const [reviewData,setreviewData]=useState({
+    title:"",
+    review:"",
+  });
+    const [rating, setRating] = useState(0);
+
   const logo = useLoaderData();
   const storedUser = localStorage.getItem("user");
   const user = storedUser ? JSON.parse(storedUser) : null;
@@ -26,6 +33,19 @@ export const ProductDetails = () => {
 
   const data=logo.msg;
   console.log(data);
+
+  const handlereview=(e)=>{
+    const name=e.target.name;
+    const value=e.target.value;
+
+    setreviewData((prev)=>({...prev,[name]:value}));
+  }
+
+  const handleSubmit=(e)=>{
+    e.preventDefault();
+
+    console.log(reviewData);
+  }
   return (
     <>
     <div className="logo">
@@ -53,14 +73,25 @@ export const ProductDetails = () => {
         <h2>{data[0].name}</h2>
 
         <h3>Your Rating</h3>
+        <div className="stars">
+          {[1, 2, 3, 4, 5].map((star) => (
+            <span
+              key={star}
+              onClick={() => setRating(star)}
+              style={{ color: star <= rating ? "#4CAF50" : "lightgray", cursor: "pointer" }}
+            >
+              ★
+            </span>
+          ))}
+        </div>
         {/* You can put your <StarRating /> here */}
         
-        <form action="" method="POST">
+        <form action="" method="POST" onSubmit={handleSubmit}>
           <label>Title Your Review</label>
-          <input type="text" placeholder="Enter a title..." />
+          <input type="text" placeholder="Enter a title..." name="title" onChange={handlereview} />
 
           <label>Write a Review</label>
-          <textarea placeholder="What should other customers know?"></textarea>
+          <textarea placeholder="What should other customers know?" name="review" onChange={handlereview}></textarea>
 
           <button type="submit">Submit Review</button>
         </form>
