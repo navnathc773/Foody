@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import "../style/product.css";  
 import { NavLink } from "react-router-dom";
+import { StarRating } from "./StarRating";
 
 export const Product = () => {
   const storedUser = localStorage.getItem("user");
@@ -50,12 +51,16 @@ export const Product = () => {
     <div className="product-container">
       {data.slice(0,visibleCount).map((curelem) => (
         <div className="product-card" key={curelem.id}>
-          <img src={curelem.src} alt={curelem.name} className="product-img" />
-          <h3 className="product-title">{curelem.name}</h3>
-          <div className="product-info">
+          <NavLink to={`/product/${curelem.id}`}><img src={curelem.src} alt={curelem.name} className="product-img" /></NavLink>
+          <NavLink to={`/product/${curelem.id}`} style={{ textDecoration: "none" }}><h3 className="product-title">{curelem.name}</h3></NavLink>
+          <NavLink  to={`/product/${curelem.id}`}  style={{ textDecoration: "none" }}>
+            <div>
+              <StarRating />
+            </div>
+          </NavLink>
+        <div className="product-info">
             <p className="product-price">Offer Price: ₹ {curelem.Price}</p>
             <div className="product-actions">
-              <NavLink to={`/product/${curelem.id}`}><button>View Details</button></NavLink>
               <button
                 className="btn cart-btn"
                 onClick={() => addToCart(curelem)}

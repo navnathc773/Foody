@@ -37,6 +37,7 @@ export const ProductDetails = () => {
         <div className="movie-info">
           <h2 className="movie-title">{data[0].name}</h2>
           <p className="movie-plot">{data[0].Description}</p>
+          <p className="movie-plot"><b>{data[0].Price}</b></p>
           <button
                 className="cart-btn" style={{fontSize:"20px",borderRadius:"5px"}}
                 onClick={() => addToCart(data[0])}
