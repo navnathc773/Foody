@@ -12,6 +12,13 @@ export const Product = () => {
     setvisibleCount((prev)=>prev+4);
   }
   const addToCart = async (curelem) => {
+    const token=localStorage.getItem('token');
+
+    if (!token) {
+    alert("⚠️ Please login to add items to your cart.");
+    return;
+  }
+
     console.log(curelem);
     const response = await fetch("http://localhost:3000/buy/add/cart", {
       method: "POST",

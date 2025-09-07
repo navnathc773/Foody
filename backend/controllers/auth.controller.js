@@ -1,6 +1,6 @@
 import express from "express";
 import { deleteCart, generateToken, getEmailData, hashedPassword, insertCart, insertData, isEmailExist, isPasswordSame } from "../models/auth.model.js";
-import {additionCart} from "../db/auth.db.js";
+import {additionCart, reviewData} from "../db/auth.db.js";
 const router=express.Router();
 
 router.post('/data', async (req, res) => {
@@ -90,6 +90,21 @@ router.delete('/confirm',async(req,res)=>{
     res.status(404).json({msg:"item is not present"});
   }
 })
+
+router.post('/review',async(req,res)=>{
+  const {title,review,rating,name}=req.body;
+
+  const insertReview=await reviewData.insertMany({name,title,review,rating});
+
+  if(insertReview){
+    return res.status(200).json({msg:"review submitted successfully"});
+  }
+  else{
+    return res.status(400).json({msg:"Something wrong happen"});
+  }
+
+})
+export const authReview=router;
 export const authDelete=router;
 export const authgetData=router;
 export const authCart=router;

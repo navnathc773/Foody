@@ -40,10 +40,19 @@ const newSchema=new Schema({
     timestamps:true
 });
 
+const reviewSchema=new Schema({
+    name:{type:String,required:true},
+    title:{type:String,required:true},
+    review:{type:String,required:true},
+    rating:{type:Number,required:true},
+})
+
 
 export const additionCart=mongoose.model('CartItems',newSchema);
 
 export const collection=mongoose.model('registration',collectionSchema);
+
+export const reviewData=mongoose.model('ReviewData',reviewSchema);
 
 
 
