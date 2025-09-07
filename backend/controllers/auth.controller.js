@@ -1,6 +1,7 @@
 import express from "express";
 import { deleteCart, generateToken, getEmailData, hashedPassword, insertCart, insertData, isEmailExist, isPasswordSame } from "../models/auth.model.js";
 import {additionCart, reviewData} from "../db/auth.db.js";
+import { authMiddleware } from "../middleware/auth.middleware.js";
 const router=express.Router();
 
 router.post('/data', async (req, res) => {
@@ -45,7 +46,7 @@ router.post('/verify',async(req,res)=>{
   }
 })
 
-  router.post('/cart',async(req,res)=>{
+  router.post('/cart',authMiddleware,async(req,res)=>{
     console.log(req.body);
     const {id,src,name,Description,Price}=req.body.curelem;
     const {_id,email}=req.body.user;
@@ -63,7 +64,7 @@ router.post('/verify',async(req,res)=>{
 
     })
 
-router.post('/cartOne', async (req, res) => {
+router.post('/cartOne',async (req, res) => {
   try {
     const { email } = req.body;
     console.log("Fetching cart for:", email);
