@@ -47,6 +47,25 @@ export const ProductDetails = () => {
         </div>
       </div>
     </div>
+     <div className="feedback-container">
+      <div className="feedback-card">
+        <h3>You're reviewing</h3>
+        <h2>{data[0].name}</h2>
+
+        <h3>Your Rating</h3>
+        {/* You can put your <StarRating /> here */}
+        
+        <form action="" method="POST">
+          <label>Title Your Review</label>
+          <input type="text" placeholder="Enter a title..." />
+
+          <label>Write a Review</label>
+          <textarea placeholder="What should other customers know?"></textarea>
+
+          <button type="submit">Submit Review</button>
+        </form>
+      </div>
+    </div>
     </>
   );
 };

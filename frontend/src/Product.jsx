@@ -60,7 +60,7 @@ export const Product = () => {
           </NavLink>
         <div className="product-info">
 
-                      <NavLink  to={`/product/${curelem.id}`}  style={{ textDecoration: "none" }}><p className="product-price">Offer Price: ₹ {curelem.Price}</p></NavLink>
+            <NavLink  to={`/product/${curelem.id}`}  style={{ textDecoration: "none" }}><p className="product-price">Offer Price: ₹ {curelem.Price}</p></NavLink>
             <div className="product-actions">
               <button
                 className="btn cart-btn"
