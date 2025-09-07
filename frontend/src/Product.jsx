@@ -59,7 +59,8 @@ export const Product = () => {
             </div>
           </NavLink>
         <div className="product-info">
-            <p className="product-price">Offer Price: ₹ {curelem.Price}</p>
+
+                      <NavLink  to={`/product/${curelem.id}`}  style={{ textDecoration: "none" }}><p className="product-price">Offer Price: ₹ {curelem.Price}</p></NavLink>
             <div className="product-actions">
               <button
                 className="btn cart-btn"

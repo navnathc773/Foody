@@ -34,17 +34,17 @@ export const Classify = () => {
       <div className="classify-container">
         {data.slice(0, visibleCount).map((curelem) => (
           <div className="classify-card" key={curelem._id}>
+            <NavLink to={`/product/${curelem.id}`}>
             <div className="classify-img-box">
               <img src={curelem.src} alt={curelem.name} className="classify-img" />
             </div>
+            </NavLink>
             <div className="classify-info">
+              <NavLink to={`/product/${curelem.id}`} style={{textDecoration:"none"}}>
               <h3 className="classify-name">{curelem.name}</h3>
               <p className="classify-price">₹ {curelem.Price}</p>
-              <div className="classify-actions">
-              <NavLink to={`/product/${curelem.id}`}>
-                <button className="classify-btn classify-view">🔍 View Details</button>
               </NavLink>
-
+              <div className="classify-actions">
             <button className="classify-btn classify-cart" onClick={() => addToCart(curelem)}>🛒 Add To Cart</button>
           </div>
       </div>
