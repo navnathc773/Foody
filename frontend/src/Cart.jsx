@@ -203,7 +203,7 @@ export const Cart = () => {
           <hr />
           <h4>Order Total</h4>
           <br />
-          <button>Proceed to Checkout</button>
+          <button className="checkout">Proceed to Checkout</button>
         </div>
       </div>
     </div>
