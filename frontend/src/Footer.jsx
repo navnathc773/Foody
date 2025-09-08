@@ -1,8 +1,13 @@
 import "../style/Footer.css";
-
+import AOS from "aos";
+import "aos/dist/aos.css";
+import { useEffect } from "react";
 export const Footer = () => {
+  useEffect(() => {
+    AOS.init({ duration: 2000 });
+  }, []);
   return (
-    <footer className="footer">
+    <footer className="footer" data-aos="zoom-out-right">
       <div className="footer-top">
         <h2 className="logo">🍴 Foodie</h2>
         <p className="tagline">Fresh • Tasty • Delivered</p>

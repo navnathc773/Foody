@@ -1,7 +1,12 @@
 import { useEffect, useState } from 'react';
 import '../style/Special.css';
+import AOS from "aos";
+import "aos/dist/aos.css";
 import { NavLink } from 'react-router-dom';
 export const Special = () => {
+  useEffect(() => {
+    AOS.init({ duration: 2000 });
+  }, []);
   const [logo, setLogo] = useState([]);
 
   const localdata = async () => {
@@ -24,7 +29,7 @@ export const Special = () => {
     <div className='head'>
       <h1>Special Attraction</h1>
     </div>
-    <div className="special-container">
+    <div className="special-container" data-aos="flip-left">
       {logo.map((item) => (
         <div className="krish-icon" key={item._id}>
           <NavLink to={`/category/${item.Category}`}>

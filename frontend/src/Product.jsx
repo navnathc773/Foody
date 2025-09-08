@@ -2,8 +2,12 @@ import React, { useEffect, useState } from "react";
 import "../style/product.css";  
 import { NavLink } from "react-router-dom";
 import { StarRating } from "./StarRating";
-
+import AOS from "aos";
+import "aos/dist/aos.css";
 export const Product = () => {
+  useEffect(() => {
+  AOS.init({ duration: 2000 });
+}, []);
   const storedUser = localStorage.getItem("user");
   const [data, setData] = useState([]);
   const [visibleCount,setvisibleCount]=useState(4);
@@ -58,7 +62,7 @@ export const Product = () => {
     <div className="product-wrapper">
     <div className="product-container">
       {data.slice(0,visibleCount).map((curelem) => (
-        <div className="product-card" key={curelem.id}>
+        <div className="product-card" key={curelem.id} data-aos="zoom-in">
           <NavLink to={`/product/${curelem.id}`}><img src={curelem.src} alt={curelem.name} className="product-img" /></NavLink>
           <NavLink to={`/product/${curelem.id}`} style={{ textDecoration: "none" }}><h3 className="product-title">{curelem.name}</h3></NavLink>
           <NavLink  to={`/product/${curelem.id}`}  style={{ textDecoration: "none" }}>

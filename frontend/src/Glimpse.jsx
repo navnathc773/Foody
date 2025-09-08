@@ -1,12 +1,17 @@
 import '../style/glimpse.css';
-
+import AOS from "aos";
+import "aos/dist/aos.css";
+import { useEffect } from 'react';
 export const Glimpse = () => {
+  useEffect(() => {
+    AOS.init({ duration: 2000 });
+  }, []);
   return (
     <>
     <div class="glimpse-container">
-  <h2 class="glimpse-title">A Glimpse of Our Delights</h2>
+    <h2 class="glimpse-title">A Glimpse of Our Delights</h2>
   
-  <div class="glimpse-row">
+  <div class="glimpse-row" data-aos="fade-in">
     <div class="glimpse-card">
       <div class="video-wrapper">
         <iframe class="glimpse-video" src="https://res.cloudinary.com/de0gfcyix/video/upload/v1756707606/WhatsApp_Video_2025-08-23_at_17.29.56_ad245fea_hhjmqw.mp4" allowfullscreen></iframe>

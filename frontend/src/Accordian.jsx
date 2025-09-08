@@ -2,8 +2,13 @@ import { useState } from "react";
 import accord from "./Accordian.json";
 import "../style/accordian.css";
 import { FaPlus, FaMinus } from "react-icons/fa";
-
+import AOS from "aos";
+import "aos/dist/aos.css";
+import { useEffect } from "react";
 export const Accordian = () => {
+  useEffect(() => {
+    AOS.init({ duration: 2000 });
+  }, []);
   const [openIndex, setOpenIndex] = useState(null);
 
   const toggle = (idx) => {
@@ -11,7 +16,7 @@ export const Accordian = () => {
   };
 
   return (
-    <div className="faq-container">
+    <div className="faq-container" data-aos="zoom-out-left">
       <h1 className="faq-title">Frequently Asked Questions</h1>
       <ul className="faq-list">
         {accord.map((item, idx) => (

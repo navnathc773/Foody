@@ -6,9 +6,13 @@ import { Accordian } from "./Accordian";
 import { GlimpseCard } from "./GlimpseCard";
 import { Special } from "./Special";
 import { Footer } from "./Footer";
-
+import AOS from "aos";
+import "aos/dist/aos.css";
 export const Home = () => {
-
+    useEffect(() => {
+    AOS.init({ duration: 2000 });
+  }, []);
+  
   return (
     <>
     <div className="pizza">
@@ -25,10 +29,10 @@ export const Home = () => {
     <div>
       <Special />
     </div>
-    <div className="speciality">
+    <div className="speciality" data-aos="zoom-in-left">
       <img src="https://res.cloudinary.com/de0gfcyix/image/upload/v1757074372/www.foodie.com_e06pbo.png" alt="" />
     </div>
-    <div className="delivery">
+    <div className="delivery" data-aos="zoom-in-right">
       <img src="https://i.ibb.co/xt1s0nH7/Chat-GPT-Image-Aug-30-2025-10-26-18-AM.png" alt="Free Delivery" />
         <div className="delivery-text">
           <h3>🎉 Enjoy Free Delivery on Orders Over ₹999!</h3>
