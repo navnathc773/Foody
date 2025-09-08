@@ -51,9 +51,9 @@ export const Cart = () => {
       <h1>Shopping Cart</h1>
       <div className="header">
         <h4>Item</h4>
-        <h4 style={{position:"relative",left:"300px"}}>Price</h4>
-        <h4 style={{position:"relative",left:"120px"}}>Qty</h4>
-        <h4 style={{position:"relative",right:"80px"}}>Subtotal</h4>
+        <h4 style={{position:"relative",left:"250px"}}>Price</h4>
+        <h4 style={{position:"relative",left:"80px"}}>Qty</h4>
+        <h4 style={{position:"relative",right:"120px"}}>Subtotal</h4>
       </div>
       <hr />
       {cartItems.length > 0 ? (
@@ -64,6 +64,15 @@ export const Cart = () => {
               <img src={item.src} alt={item.name} />
               <div className="cart-info">
                 <h3>{item.name}</h3>
+              </div>
+              <div className="price">
+                <h5>{item.price}</h5>
+              </div>
+              <div className="quantity">
+                <input type="number" value={1} />
+              </div>
+              <div className="subtotal">
+                ₹{item.price.slice(0,3)}
               </div>
               <button onClick={() => handleDelete(item._id)}>
                 <MdDelete />
