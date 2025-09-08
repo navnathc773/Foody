@@ -5,7 +5,7 @@ import "../style/Home.css";
 import { useState } from "react";
 import { useAuth } from "./auth/Auth";
 import { CgProfile } from "react-icons/cg";
-
+import { IoMdLogOut } from "react-icons/io";
 export const Layout = () => {
   const {storeToken}=useAuth();
   const {isLoggedIn}=useAuth();
@@ -69,11 +69,10 @@ export const Layout = () => {
     const result = await response.json();
 
     if (response.status === 200) {
-      alert(result.msg); // "data inserted successfully"
+      alert(result.msg); 
       setIsLogin(true);
-      // localStorage.setItem("user", JSON.stringify(result.wholeData));
     } else if (response.status === 404) {
-      alert(result.msg); // "Duplicate entry" or "data not inserted"
+      alert(result.msg); 
     } else {
       alert("Unexpected error occurred!");
     }
@@ -130,25 +129,21 @@ const handlelogOut=()=>{
   return (
     <>
       <nav className="navbar">
-        <div className="logo">Foody</div>
+        <div className="logo">Foodie</div>
         <div className="nav-links">
           <NavLink to="/">Home</NavLink>
           <NavLink to="/About">About</NavLink>
           <NavLink to="/Contact">Contact</NavLink>
           <NavLink to="/Cart" className="cart-link">
-  <div className="cart-icon-wrapper">
-    <FaShoppingCart className="cart-icon" />
-    {/* {cartitems.length > 0 && (
-      <span className="cart-count">{cartitems.length}</span>
-    )} */}
-  </div>
-</NavLink>
-
+          <div className="cart-icon-wrapper">
+            <FaShoppingCart className="cart-icon" />
+          </div>
+          </NavLink>
           {
             isLoggedIn ? 
             <>
                 <div className="profile-wrapper">
-      <CgProfile style={{ fontSize: "40px", color: "white", cursor: "pointer" }} onClick={() => setOpen(!open)} />
+                <CgProfile style={{ fontSize: "35px", color: "grey", cursor: "pointer",position:"relative",top:"4px",left:"6px"}} onClick={() => setOpen(!open)} />
                 {open && (
                 <div className="profile-box">
                   <h3>User Profile</h3>
@@ -160,8 +155,7 @@ const handlelogOut=()=>{
                 </div>
               )}
          </div>
-
-              <button className="popup-btn" onClick={handlelogOut} >Log Out</button>
+              <button className="popup-btn" onClick={handlelogOut} style={{fontSize:"30px",position:"relative",top:"5px"}} ><IoMdLogOut /></button>
             </>
              :
             <>
@@ -172,41 +166,25 @@ const handlelogOut=()=>{
                 Login
               </button>
             </>
-
-          }
-          
+          }  
         </div>
       </nav>
-
       <Outlet />
-
-      {/* Popup Modal */}
       {showModal && (
         <div className="modal-overlay" onClick={closePopup}>
           <div
             className="modal-content"
-            onClick={(e) => e.stopPropagation()} // prevent closing when clicking inside
+            onClick={(e) => e.stopPropagation()} 
           >
             <span className="close-btn" onClick={closePopup}>
               &times;
             </span>
-
-            {/* Switch between Login & SignUp */}
             {isLogin ? (
               <form className="signup-form" onSubmit={handleloginsubmit}>
                 <h2>Login</h2>
-
                 <input type="email" name="email" placeholder="Email" onChange={handlelogin}required />
-                <input
-                  type="password"
-                  name="password"
-                  onChange={handlelogin}
-                  placeholder="Password"
-                  required
-                />
-
+                <input type="password" name="password" onChange={handlelogin} placeholder="Password" required />
                 <button type="submit">Login</button>
-
                 <p>
                   Don’t have an account?{" "}
                   <span className="switch-link" onClick={() => setIsLogin(false)}>
