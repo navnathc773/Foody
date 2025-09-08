@@ -48,24 +48,34 @@ export const Cart = () => {
   }
   return (
     <div className="cart-container">
+      <h1>Shopping Cart</h1>
+      <div className="header">
+        <h4>Item</h4>
+        <h4 style={{position:"relative",left:"300px"}}>Price</h4>
+        <h4 style={{position:"relative",left:"120px"}}>Qty</h4>
+        <h4 style={{position:"relative",right:"80px"}}>Subtotal</h4>
+      </div>
+      <hr />
       {cartItems.length > 0 ? (
-        <div className="cart-list">
-          {cartItems.map((item) => (
-            <div className="cart-card" key={item._id}>
+      <div className="cart-list">
+        {cartItems.map((item, index) => (
+          <div key={item._id}>
+            <div className="cart-card">
               <img src={item.src} alt={item.name} />
               <div className="cart-info">
                 <h3>{item.name}</h3>
-                <p>{item.Description}</p>
-                <span className="price">₹{item.price}</span>
-                <button className="buy-btn">Buy Now</button>
               </div>
-              <button onClick={()=>handleDelete(item._id)}><MdDelete /></button>
+              <button onClick={() => handleDelete(item._id)}>
+                <MdDelete />
+              </button>
             </div>
-          ))}
-        </div>
-      ) : (
+          {index !== cartItems.length - 1 && <hr />}
+          </div>
+        ))}
+      </div>
+    ) : (
         <p className="empty">🛒 Your cart is empty</p>
-      )}
+    )}
     </div>
   );
 };
