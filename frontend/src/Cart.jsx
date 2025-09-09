@@ -110,7 +110,7 @@ import { MdDelete } from "react-icons/md";
 export const Cart = () => {
   const storedUser = localStorage.getItem("user");
   const user = storedUser ? JSON.parse(storedUser) : null;
-
+  let totalsum=0;
   const email = user?.email || "";
   const [cartItems, setCartItems] = useState([]);
 
@@ -152,13 +152,19 @@ export const Cart = () => {
     }
   };
 
+  const subtotal = cartItems.reduce((sum, item) => {
+      const price = parseInt(item.price.replace(/[^0-9]/g, ""), 10) || 0;
+      return sum + price;
+  }, 0);
+
+  const shipping=50;
+  const orderTotal=subtotal+shipping;
+
   return (
     <div className="cart-container">
       <h1>Shopping Cart</h1>
 
-      {/* wrapper keeps cart + summary side by side */}
       <div className="cart-wrapper">
-        {/* left side */}
         {cartItems.length > 0 ? (
           <div className="cart-list">
             <div className="header">
@@ -181,6 +187,7 @@ export const Cart = () => {
                   <div className="quantity">
                     <input type="number" value={1} />
                   </div>
+
                   <div className="subtotal">₹{item.price.slice(0, 3)}</div>
                   <button onClick={() => handleDelete(item._id)} className="delete">
                     <MdDelete />
@@ -197,11 +204,11 @@ export const Cart = () => {
         <div className="summarybox">
           <h2>Summary</h2>
           <hr />
-          <h4>Estimate Shipping</h4>
+          <h4>Estimate Shipping: ₹{shipping}</h4>
           <hr />
-          <h5>Subtotal</h5>
+          <h4>Subtotal: ₹{subtotal}</h4>
           <hr />
-          <h4>Order Total</h4>
+          <h4>Order Total: ₹{orderTotal}</h4>
           <br />
           <button className="checkout">Proceed to Checkout</button>
         </div>

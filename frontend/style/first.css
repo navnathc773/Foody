@@ -72,6 +72,10 @@
   opacity: 1;
   right: -35px;
 }
+
+.delivery aos-init aos-animate{
+  background-image: url('');
+}
 .delivery {
   display: flex;
   align-items: center;
@@ -82,7 +86,7 @@
   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
   max-width: 900px;
   margin: 40px auto;
-  gap: 30px; /* space between image and text */
+  gap: 30px; 
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   position: relative;
   top:300px;
@@ -119,11 +123,15 @@
 }
 
 .speciality {
+  background-image: url('https://res.cloudinary.com/de0gfcyix/image/upload/v1757333609/Green_Simple_Sunday_Sermon_Church_Presentation_npbdiw.jpg');
+  background-repeat: no-repeat;
   display: flex;
   justify-content: center; 
   align-items: center; 
   position: relative;
   top: 150px;
+  width: 100%;
+  height: 550px;
 }
 
 .speciality img {

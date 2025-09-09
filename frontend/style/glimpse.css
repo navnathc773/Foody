@@ -3,13 +3,15 @@
   padding: 2rem;
   background: #fdfdfd;
   min-height: 100vh;
+  background-image: url('https://res.cloudinary.com/de0gfcyix/image/upload/v1757426096/abstract-luxury-gradient-blue-background-smooth-dark-blue-with-black-vignette-studio-banner_e0mgfr.jpg');
+  background-repeat: no-repeat;
 }
 
 .glimpse-title {
   font-size: 2.5rem;
   font-weight: bold;
   margin-bottom: 2rem;
-  color: #3c3c3c;
+  color:white;
   text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
 }
 
