@@ -129,7 +129,7 @@ const handlelogOut=()=>{
   return (
     <>
       <nav className="navbar">
-        <div className="logo">Foodie</div>
+        <div className="logo"><img src="https://res.cloudinary.com/de0gfcyix/image/upload/v1757428053/Foodie_Food_Logo_daue10.png" style={{width:"70px"}}alt="" /></div>
         <div className="nav-links">
           <NavLink to="/">Home</NavLink>
           <NavLink to="/About">About</NavLink>

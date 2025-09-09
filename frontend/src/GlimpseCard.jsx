@@ -10,6 +10,8 @@ export const GlimpseCard = () => {
             height: "530px",
             objectFit: "cover",
             borderRadius: "12px",
+            position:"relative",
+            bottom:"20px"
           }}
         />
       </div>
