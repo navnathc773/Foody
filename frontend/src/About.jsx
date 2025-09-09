@@ -1,5 +1,12 @@
 import '../style/About.css';
+import AOS from "aos";
+import "aos/dist/aos.css";
+import { useEffect } from 'react';
 export const About=()=>{
+    useEffect(() => {
+          AOS.init({ duration: 2000 });
+      }, []);
+      
     return(
         <>
         <div className='localite'>
@@ -11,7 +18,7 @@ export const About=()=>{
                     top:"140px"
                 }} autoPlay muted loop playsInline></video>
             </div>
-            <div className='details'>
+            <div className='details' data-aos="fade-right">
                 <p>Foodie is a an online ecommerce platform providing variety of food products. The uniqueness and quality of product make us  competitive in market.</p>
                 <div className='second'>
                     <p>Platform offers a variety range of products including pizza,delicious cakes, donut and many more. </p>
