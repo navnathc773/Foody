@@ -1,4 +1,24 @@
+.localite{
+     display: flex;
+}
+
 .map{
     position: relative;
-    top:300px;
+    top:230px;
+}
+
+.details p{
+    background-image: url('https://res.cloudinary.com/de0gfcyix/image/upload/v1757431724/Purple_Sky_Profile_Header_xhqitf.png');
+    background-repeat: no-repeat;
+    position: relative;
+    left:100px;
+    width: 300px;
+    letter-spacing: 3px;
+    top:90px;
+    font-weight: 600;
+}
+
+.details .second p{
+    position: relative;
+    left: 500px;
 }

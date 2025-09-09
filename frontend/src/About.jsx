@@ -2,12 +2,24 @@ import '../style/About.css';
 export const About=()=>{
     return(
         <>
-        <div>
+        <div className='localite'>
             <div>
-                <img src="" alt="" />
+                <video src="https://res.cloudinary.com/de0gfcyix/video/upload/v1757430346/Green_Brown_Minimalist_Bakery_Youtube_Video_Ad_rokbu1.mp4"
+                style={{width:"500px",height:"250px",
+                    position:"relative",
+                    left:"100px",
+                    top:"140px"
+                }} autoPlay muted loop playsInline></video>
             </div>
-            <div>
+            <div className='details'>
                 <p>Foodie is a an online ecommerce platform providing variety of food products. The uniqueness and quality of product make us  competitive in market.</p>
+                <div className='second'>
+                    <p>Platform offers a variety range of products including pizza,delicious cakes, donut and many more. </p>
+                </div>
+
+                <div className='third'>
+                    <p>For ease to use website offers categorization of products. Product maker has done a professional course of cooking and is able to make products which are not belong to our country</p>
+                </div>
             </div>
         </div>
         <div className="map">
