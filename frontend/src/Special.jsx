@@ -26,18 +26,20 @@ export const Special = () => {
 
   return (
     <>
-    <div className='head'>
-      <h1>Special Attraction</h1>
-    </div>
-    <div className="special-container" data-aos="flip-left">
-      {logo.map((item) => (
-        <div className="krish-icon" key={item._id}>
-          <NavLink to={`/category/${item.Category}`}>
-          <img src={item.src} alt={item.Category} />
-          </NavLink>
-          <p>{item.Category}</p>
-        </div>
-      ))}
+    <div className='local'>
+      <div className='head'>
+        <h1>Special Attraction</h1>
+      </div>
+      <div className="special-container" data-aos="flip-left">
+        {logo.map((item) => (
+          <div className="krish-icon" key={item._id}>
+            <NavLink to={`/category/${item.Category}`}>
+              <img src={item.src} alt={item.Category} />
+            </NavLink>
+            <p>{item.Category}</p>
+          </div>
+        ))}
+      </div>
     </div>
     </>
   );

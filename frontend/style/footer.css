@@ -1,20 +1,13 @@
 .footer {
-  background: #111; /* black background */
+  background: #111; 
   color: #eee;
   text-align: center;
   position: relative;
-  top:400px;
+  top:100px;
   padding: 40px 20px;
-  border-top: 3px solid #16a34a; /* green accent */
+  border-top: 3px solid #16a34a; 
   font-family: 'Segoe UI', sans-serif;
 }
-
-/* .logo {
-  font-size: 26px;
-  font-weight: bold;
-  color: #16a34a;
-} */
-
 .tagline {
   font-size: 14px;
   color: #aaa;

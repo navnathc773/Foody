@@ -1,3 +1,10 @@
+.local{
+  background-image: url('https://res.cloudinary.com/de0gfcyix/image/upload/v1757330328/Gray_Clouds_with_Rain_Desktop_Wallpaper_n1t48f.png');
+  background-repeat: no-repeat;
+  position: relative;
+  bottom: 22px;
+}
+
 .special-container {
   display: flex;
   flex-wrap: wrap;
@@ -5,6 +12,8 @@
   padding: 20px;
   justify-content: center;
   background: #f9f9f9;
+  background-image: url('https://res.cloudinary.com/de0gfcyix/image/upload/v1757330328/Gray_Clouds_with_Rain_Desktop_Wallpaper_n1t48f.png');
+  background-repeat: no-repeat;
 }
 
 .krish-icon {
@@ -31,4 +40,6 @@
 
 .head h1{
   text-align: center;
+  color: white;
+  letter-spacing: 2px;
 }

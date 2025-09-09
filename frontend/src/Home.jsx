@@ -29,7 +29,7 @@ export const Home = () => {
     <div>
       <Special />
     </div>
-    <div className="speciality" data-aos="zoom-in-left">
+    <div className="speciality" >
       <img src="https://res.cloudinary.com/de0gfcyix/image/upload/v1757074372/www.foodie.com_e06pbo.png" alt="" />
     </div>
     <div className="delivery" data-aos="zoom-in-right">
