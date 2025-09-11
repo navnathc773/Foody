@@ -1,5 +1,5 @@
 import express from "express";
-import { deleteCart, generateToken, getEmailData, hashedPassword, insertCart, insertData, isEmailExist, isPasswordSame } from "../models/auth.model.js";
+import { deleteCart, generateToken, getEmailData, hashedPassword, insertCart, insertContact, insertData, isEmailExist, isPasswordSame } from "../models/auth.model.js";
 import {additionCart, reviewData} from "../db/auth.db.js";
 import { authMiddleware } from "../middleware/auth.middleware.js";
 const router=express.Router();
@@ -105,6 +105,22 @@ router.post('/review',async(req,res)=>{
   }
 
 })
+
+router.post('/details',async(req,res)=>{
+  const {name,email,message}=req.body;
+
+  const insertDetails=await insertContact(name,email,message);
+
+  if(insertDetails){
+    return res.status(200).json({msg:"contact data inserted successfully"});
+  }
+  else{
+    return res.status(404).json({msg:"some error happened"});
+  }
+
+})
+
+export const authContact=router;
 export const authReview=router;
 export const authDelete=router;
 export const authgetData=router;

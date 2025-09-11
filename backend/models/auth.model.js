@@ -1,6 +1,7 @@
-import { additionCart, collection } from "../db/auth.db.js";
+import { additionCart, collection,contactData } from "../db/auth.db.js";
 import bcrypt from "bcrypt";
 import jwt from "jsonwebtoken";
+
 export const insertData=async(name,email,mobileno,password)=>{
     return await collection.insertMany({name,email,mobileno,password});
 }
@@ -50,5 +51,9 @@ export const deleteCart=async(id)=>{
     else{
         return false;
     }
+}
+
+export const insertContact=async(name,email,message)=>{
+    return await contactData.insertMany({name,email,message});
 }
 

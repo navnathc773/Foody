@@ -47,6 +47,14 @@ const reviewSchema=new Schema({
     rating:{type:Number,required:true},
 })
 
+const contactSchema=new Schema({
+    name:{type:String,required:true},
+    email:{type:String,required:true},
+    message:{type:String,required:true},
+})
+
+
+export const contactData=mongoose.model('ContactData',contactSchema);
 
 export const additionCart=mongoose.model('CartItems',newSchema);
 
