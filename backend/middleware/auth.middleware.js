@@ -7,8 +7,6 @@ export const authMiddleware=async(req,res,next)=>{
         if (!authHeader || authHeader === 'Bearer null' || authHeader === 'Bearer undefined') {
             return res.status(404).json({ msg: "No token provided, please login" });
         }
-
-        
         const token=authHeader.split(" ")[1];
         
         if(!token){
@@ -16,10 +14,10 @@ export const authMiddleware=async(req,res,next)=>{
         }
 
         jwt.verify(token,'asdf',(err,decoded)=>{
+            console.log(err);
             if(err){
                 return res.status(403).json({msg:"Invalid or expired token"});
             }
-
             req.user=decoded;
             next();
         })

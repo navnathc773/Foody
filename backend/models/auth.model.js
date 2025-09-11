@@ -35,7 +35,7 @@ export const isPasswordSame=async(email,password)=>{
 
 export const generateToken=(email,password)=>{
   return jwt.sign({email,password},'asdf',{
-    expiresIn:"2m",
+    expiresIn:"30m",
   });
 }
 

@@ -1,19 +1,21 @@
 import { useLoaderData, NavLink } from "react-router-dom";
 import { useState } from "react";
 import '../style/classify.css';
+import { useAuth } from "./auth/Auth.jsx";
 export const Classify = () => {
   const items = useLoaderData();
   const data = items.msg;
   const [visibleCount, setVisibleCount] = useState(5);
   const storedUser = localStorage.getItem("user");
   const user = storedUser ? JSON.parse(storedUser) : null;
-  
+  const {token}=useAuth();
   const addToCart = async (curelem) => {
     console.log(curelem);
     const response = await fetch("http://localhost:3000/buy/add/cart", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
+        "Authorization":`Bearer ${token}`,
       },
       body: JSON.stringify({
         curelem,
@@ -21,8 +23,10 @@ export const Classify = () => {
       }),
     });
 
-    if (response.ok) {
-      alert("✅ Product added to cart");
+    const result=await response.json();
+    console.log(result);
+    if (result.ok) {
+      alert(result.msg);
     } else {
       alert("⚠️ Product is already in the cart");
     }
