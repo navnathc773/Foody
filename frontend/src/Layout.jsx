@@ -93,7 +93,6 @@ const handlelogin=(e)=>{
 
 const handleloginsubmit=async(e)=>{
   e.preventDefault();
-
   const response=await fetch("http://localhost:3000/login/verify",{
     method:"POST",
     headers:{
@@ -113,7 +112,7 @@ const handleloginsubmit=async(e)=>{
     storeToken(result.token);
     setIsLogin(false);
     setShowModal(false);
-    navigate('/About');
+    navigate('/');
 
   }
   else{

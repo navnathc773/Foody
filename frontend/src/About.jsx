@@ -6,6 +6,7 @@ export const About=()=>{
     useEffect(() => {
           AOS.init({ duration: 2000 });
       }, []);
+
       
     return(
         <>
