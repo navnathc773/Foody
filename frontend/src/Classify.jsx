@@ -24,8 +24,8 @@ export const Classify = () => {
     });
 
     const result=await response.json();
-    console.log(result);
-    if (result.ok) {
+    console.log('sdfdslkf',result.msg);
+    if (result) {
       alert(result.msg);
     } else {
       alert("⚠️ Product is already in the cart");
