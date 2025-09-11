@@ -93,7 +93,7 @@ export const ProductDetails = () => {
         </div>
       </div>
 
-      <div className="feedback-container">
+      {/* <div className="feedback-container">
         <div className="feedback-card">
           <h3>You're reviewing</h3>
           <h2>{data[0].name}</h2>
@@ -125,7 +125,7 @@ export const ProductDetails = () => {
             <button type="submit">Submit Review</button>
           </form>
         </div>
-      </div>
+      </div> */}
     </>
   );
 };

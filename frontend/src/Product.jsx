@@ -66,9 +66,9 @@ export const Product = () => {
           <NavLink to={`/product/${curelem.id}`}><img src={curelem.src} alt={curelem.name} className="product-img" /></NavLink>
           <NavLink to={`/product/${curelem.id}`} style={{ textDecoration: "none" }}><h3 className="product-title">{curelem.name}</h3></NavLink>
           <NavLink  to={`/product/${curelem.id}`}  style={{ textDecoration: "none" }}>
-            <div>
+            {/* <div>
               <StarRating />
-            </div>
+            </div> */}
           </NavLink>
         <div className="product-info">
 
