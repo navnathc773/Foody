@@ -58,7 +58,7 @@ export const Cart = () => {
   const {token}=useAuth();
   return (
     <div className="cart-container">
-      <h1>Shopping Cart</h1>
+      {token ? <h1>Shopping Cart</h1> : ""}
       {token ? 
       <div className="cart-wrapper">
         {cartItems.length > 0 ? (
