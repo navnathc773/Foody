@@ -161,7 +161,7 @@ const handlelogOut=()=>{
               <button className="popup-btn" onClick={openSignUp} style={{fontSize:"18px"}}>
                 Sign Up
               </button>
-              <button className="popup-btn" onClick={openLogin} style={{fontSize:"18px"}}>
+              <button className="popup-btn" onClick={openLogin} style={{fontSize:"18px",position:"relative",right:'10px'}}>
                 Login
               </button>
             </>
