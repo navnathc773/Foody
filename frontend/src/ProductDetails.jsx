@@ -1,6 +1,7 @@
 import { useLoaderData } from "react-router-dom";
 import "../style/data.css";
 import { useState } from "react";
+import { useAuth } from "./auth/Auth.jsx";
 
 export const ProductDetails = () => {
   const [reviewData, setReviewData] = useState({
@@ -8,7 +9,7 @@ export const ProductDetails = () => {
     review: "",
     rating: 0, // include rating inside reviewData
   });
-
+   const {token}=useAuth();
    const logo = useLoaderData();
    const storedUser = localStorage.getItem("user");
    const user = storedUser ? JSON.parse(storedUser) : null;
@@ -19,6 +20,7 @@ export const ProductDetails = () => {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
+        "Authorization":`Bearer ${token}`,
       },
       body: JSON.stringify({
         curelem,
