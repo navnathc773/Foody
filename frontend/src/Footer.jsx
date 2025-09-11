@@ -14,8 +14,7 @@ export const Footer = () => {
       </div>
 
       <div className="footer-buttons">
-        <a href="/shop" className="footer-btn">Shop</a>
-        <a href="/faq" className="footer-btn">FAQ</a>
+        <a href="/cart" className="footer-btn">Shop</a>
         <a href="/contact" className="footer-btn">Contact</a>
         <a href="/about" className="footer-btn">About Us</a>
       </div>

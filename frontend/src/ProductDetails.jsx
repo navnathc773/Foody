@@ -9,9 +9,9 @@ export const ProductDetails = () => {
     rating: 0, // include rating inside reviewData
   });
 
-  const logo = useLoaderData();
-  const storedUser = localStorage.getItem("user");
-  const user = storedUser ? JSON.parse(storedUser) : null;
+   const logo = useLoaderData();
+   const storedUser = localStorage.getItem("user");
+   const user = storedUser ? JSON.parse(storedUser) : null;
 
   const addToCart = async (curelem) => {
     console.log(curelem);
@@ -26,8 +26,11 @@ export const ProductDetails = () => {
       }),
     });
 
-    if (response.ok) {
-      alert("✅ Product added to cart");
+    const result=await response.json();
+
+    console.log('sdfkldskflsdf',result);
+    if (result) {
+      alert(result.msg);
     } else {
       alert("⚠️ Product is already in the cart");
     }

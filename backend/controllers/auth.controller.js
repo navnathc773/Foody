@@ -46,7 +46,7 @@ router.post('/verify',async(req,res)=>{
   }
 })
 
-  router.post('/cart',authMiddleware,async(req,res)=>{
+  router.post('/cart',async(req,res)=>{
     console.log(req.body);
     const {id,src,name,Description,Price}=req.body.curelem;
     const {_id,email}=req.body.user;
@@ -55,11 +55,11 @@ router.post('/verify',async(req,res)=>{
     if (exist.length === 0) {
       const insertion = await insertCart(email, id, src, name, Description, Price);
         if (insertion) {
-          return res.status(200).json({ msg: "Item added to Cart" });
+          return res.status(200).json({ msg: "✅ Item added to Cart" });
         }
     } 
     else {
-          return res.status(400).json({ msg: "Item already added to Cart" });
+          return res.status(400).json({ msg: "⚠️ Item already added to Cart" });
     }
 
     })
