@@ -2,7 +2,7 @@ import { useLoaderData } from "react-router-dom";
 import "../style/data.css";
 import { useState } from "react";
 import { useAuth } from "./auth/Auth.jsx";
-
+import { toast } from "react-toastify";
 export const ProductDetails = () => {
   const [reviewData, setReviewData] = useState({
     title: "",
@@ -32,9 +32,9 @@ export const ProductDetails = () => {
 
     console.log('sdfkldskflsdf',result);
     if (result) {
-      alert(result.msg);
+      toast.success("Product is added to the cart");
     } else {
-      alert("⚠️ Product is already in the cart");
+      toast.error("⚠️ Product is already in the cart");
     }
   };
 
