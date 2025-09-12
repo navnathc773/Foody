@@ -4,6 +4,7 @@ import { NavLink } from "react-router-dom";
 import { StarRating } from "./StarRating";
 import AOS from "aos";
 import "aos/dist/aos.css";
+import { toast } from "react-toastify";
 export const Product = () => {
   useEffect(() => {
   AOS.init({ duration: 2000 });
@@ -19,7 +20,7 @@ export const Product = () => {
     const token=localStorage.getItem('token');
 
     if (!token) {
-    alert("⚠️ Please login to add items to your cart.");
+    toast.error("⚠️ Please login to add items to your cart.");
     return;
   }
 
@@ -37,9 +38,9 @@ export const Product = () => {
     });
 
     if (response.ok) {
-      alert("✅ Product added to cart");
+      toast.success("✅ Product added to cart");
     } else {
-      alert("⚠️ Product is already in the cart");
+      toast.error("⚠️ Product is already in the cart");
     }
   };
 

@@ -31,10 +31,10 @@ export const ProductDetails = () => {
     const result=await response.json();
 
     console.log('sdfkldskflsdf',result);
-    if (result) {
-      toast.success("Product is added to the cart");
+    if (response.ok) {
+      toast.success("Product is added to the Cart");
     } else {
-      toast.error("⚠️ Product is already in the cart");
+      toast.error("Product is already added to the Cart");
     }
   };
 
