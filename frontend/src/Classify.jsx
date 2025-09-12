@@ -2,6 +2,7 @@ import { useLoaderData, NavLink } from "react-router-dom";
 import { useState } from "react";
 import '../style/classify.css';
 import { useAuth } from "./auth/Auth.jsx";
+import { toast } from "react-toastify";
 export const Classify = () => {
   const items = useLoaderData();
   const data = items.msg;
@@ -25,10 +26,11 @@ export const Classify = () => {
 
     const result=await response.json();
     console.log('sdfdslkf',result.msg);
-    if (result) {
-      alert(result.msg);
+    if (result)
+    {
+      toast.success(result.msg);
     } else {
-      alert("⚠️ Product is already in the cart");
+      toast.error("⚠️ Product is already in the cart");
     }
   };
 
