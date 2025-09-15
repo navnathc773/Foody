@@ -2,6 +2,7 @@ import { Outlet, useNavigate } from "react-router-dom";
 import { FaShoppingCart } from "react-icons/fa";
 import { NavLink } from "react-router-dom";
 import "../style/Home.css";
+import { toast } from "react-toastify";
 import { useState } from "react";
 import { useAuth } from "./auth/Auth";
 import { CgProfile } from "react-icons/cg";
@@ -69,12 +70,12 @@ export const Layout = () => {
     const result = await response.json();
 
     if (response.status === 200) {
-      alert(result.msg); 
+      toast.success(result.msg); 
       setIsLogin(true);
     } else if (response.status === 404) {
-      alert(result.msg); 
+      toast.error(result.msg); 
     } else {
-      alert("Unexpected error occurred!");
+      toast.error("Unexpected error occurred!");
     }
 
     console.log("Server Response:", result);
@@ -104,7 +105,7 @@ const handleloginsubmit=async(e)=>{
   const result=await response.json();
 
   if(response.ok){
-    alert(result.msg);
+    toast.success(result.msg);
     console.log('sdkffs',result.pass);
     localStorage.setItem("user", JSON.stringify(result.user || result.pass));  
     setstore(result.user || result.pass);
@@ -116,7 +117,7 @@ const handleloginsubmit=async(e)=>{
 
   }
   else{
-    alert(result.msg);
+    toast.error(result.msg);
   }
   console.log(logo);
 
