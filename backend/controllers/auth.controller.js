@@ -147,7 +147,10 @@ router.post('/razorpay',(req,res)=>{
       }
 
       console.log(order);
-      return res.status(200).json({datapayment:order}); 
+      return res.status(200).json({
+        datapayment:order,
+        Key:process.env.RAZORPAY_KEY,
+      }); 
     })
   }
   catch(error){

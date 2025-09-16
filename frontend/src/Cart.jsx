@@ -2,7 +2,6 @@ import { useEffect, useState } from "react";
 import "../style/cart.css";
 import { MdDelete } from "react-icons/md";
 import { useAuth } from "./auth/Auth.jsx";
-
 export const Cart = () => {
   const storedUser = localStorage.getItem("user");
   const user = storedUser ? JSON.parse(storedUser) : null;
@@ -72,6 +71,32 @@ export const Cart = () => {
       const data=await response.json();
 
       console.log(data);
+      const {amount,id,receipt}=data.datapayment;
+      const key=data.Key;
+      console.log('dlksdf',receipt);
+
+      const options={
+        key,
+        amount:amount*100,
+        currency:"INR",
+        name:"Foodie",
+        description:"Test Transaction",
+        id,
+        handler:function(response){
+          console.log("Payment Success",response);
+          alert("Payment ID:"+receipt);
+        },
+        prefill:{
+          name:"Navnath",
+          email:"navnathc773@gmail.com",
+          contact:"8805183471",
+        },
+        theme:{color:'#3399cc'},
+      };
+
+      const rzp=new window.Razorpay(options);
+
+      rzp.open();
     }
   }
   return (
