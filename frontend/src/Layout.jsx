@@ -22,6 +22,9 @@ export const Layout = () => {
     password:"",
   })
 
+    const [selectedImage, setSelectedImage] = useState(null);
+
+
   const [store, setstore] = useState(() => {
       const storedUser = localStorage.getItem("user");
       return storedUser ? JSON.parse(storedUser) : { name: "", email: "", mobileno: "" };
@@ -126,6 +129,15 @@ const handleloginsubmit=async(e)=>{
 const handlelogOut=()=>{
    logout();
 }
+
+  const handleFileChange = (e) => {
+    const file = e.target.files[0];
+    if (file) {
+      // Create a URL to preview the image
+      setSelectedImage(URL.createObjectURL(file));
+    }
+  };
+
   return (
     <>
       <nav className="navbar">
@@ -146,6 +158,13 @@ const handlelogOut=()=>{
                 <CgProfile style={{ fontSize: "35px", color: "grey", cursor: "pointer",position:"relative",top:"4px",left:"6px"}} onClick={() => setOpen(!open)} />
                 {open && (
                 <div className="profile-box">
+                            <img 
+            src={selectedImage} 
+            alt="Profile Preview" 
+            style={{ width: "150px", height: "150px", borderRadius: "50%", objectFit: "cover" }} 
+          />
+
+                  <input type="file" accept="image/*" onChange={handleFileChange} />
                   <h3>User Profile</h3>
                   <p>Name: {store.name}</p>
                   <p>Mobile No: {store.mobileno} </p>
