@@ -56,6 +56,24 @@ export const Cart = () => {
   const shipping=50;
   const orderTotal=subtotal+shipping;
   const {token}=useAuth();
+
+  const handlePayment=async(e)=>{
+    e.preventDefault();
+
+    const response=await fetch('http://localhost:3000/payment/razorpay',{
+      method:"POST",
+      headers:{
+        'Content-Type':'application/json',
+      },
+      body:JSON.stringify({orderTotal}),
+    })
+
+    if(response.ok){
+      const data=await response.json();
+
+      console.log(data);
+    }
+  }
   return (
     <div className="cart-container">
       {token ? <h1>Shopping Cart</h1> : ""}
@@ -97,16 +115,18 @@ export const Cart = () => {
           <p className="empty">🛒 Your cart is empty</p>
         )}
 
-        <div className="summarybox">
-          <h2>Summary</h2>
-          <hr />
-          <h4>Estimate Shipping: ₹{shipping}</h4>
-          <hr />
-          <h4>Subtotal: ₹{subtotal}</h4>
-          <hr />
-          <h4>Order Total: ₹{orderTotal}</h4>
-          <br />
-          <button className="checkout">Proceed to Checkout</button>
+        <div className="summarybox" onSubmit={handlePayment}>
+          <form action="">
+            <h2>Summary</h2>
+            <hr />
+            <h4>Estimate Shipping: ₹{shipping}</h4>
+            <hr />
+            <h4>Subtotal: ₹{subtotal}</h4>
+            <hr />
+            <h4>Order Total: ₹{orderTotal}</h4>
+            <br />
+            <button className="checkout" type="submit">Proceed to Checkout</button>
+          </form>
         </div>
       </div>
          : 

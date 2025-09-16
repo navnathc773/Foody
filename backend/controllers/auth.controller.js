@@ -2,6 +2,10 @@ import express from "express";
 import { deleteCart, generateToken, getEmailData, hashedPassword, insertCart, insertContact, insertData, isEmailExist, isPasswordSame } from "../models/auth.model.js";
 import {additionCart, reviewData} from "../db/auth.db.js";
 import { authMiddleware } from "../middleware/auth.middleware.js";
+import Razorpay from "razorpay";
+import 'dotenv/config.js';
+import crypto from "crypto";
+
 const router=express.Router();
 
 router.post('/data', async (req, res) => {
@@ -120,6 +124,38 @@ router.post('/details',async(req,res)=>{
 
 })
 
+
+router.post('/razorpay',(req,res)=>{
+  const {orderTotal}=req.body;
+
+  const razorpayInstance=new Razorpay({
+    key_id:process.env.RAZORPAY_KEY,
+    key_secret:process.env.RAZORPAY_SECRET,
+  })
+
+  try{
+    const options={
+      amount:Number(orderTotal),
+      currency:"INR",
+      receipt:crypto.randomBytes(10).toString('hex'),
+    }
+
+    razorpayInstance.orders.create(options,(err,order)=>{
+      if(err){
+        console.log(err);
+        return res.status(500).json({msg:"Something went wrong!"});
+      }
+
+      console.log(order);
+      return res.status(200).json({datapayment:order}); 
+    })
+  }
+  catch(error){
+    console.log(error);
+  }
+  // console.log(orderTotal);
+})
+export const authPayment=router;
 export const authContact=router;
 export const authReview=router;
 export const authDelete=router;
