@@ -9,12 +9,17 @@ export const ProductDetails = () => {
     review: "",
     rating: 0, // include rating inside reviewData
   });
-   const {token}=useAuth();
+  //  const {token}=useAuth();
    const logo = useLoaderData();
    const storedUser = localStorage.getItem("user");
    const user = storedUser ? JSON.parse(storedUser) : null;
 
   const addToCart = async (curelem) => {
+    const token=localStorage.getItem('token');
+        if (!token) {
+        toast.error("⚠️ Please login to add items to your cart.");
+        return;
+      }
     console.log(curelem);
     const response = await fetch("http://localhost:3000/buy/add/cart", {
       method: "POST",

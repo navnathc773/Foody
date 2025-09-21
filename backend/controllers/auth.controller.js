@@ -127,7 +127,7 @@ router.post('/details',async(req,res)=>{
 
 router.post('/razorpay',(req,res)=>{
   const {orderTotal}=req.body;
-
+  console.log("total order",orderTotal);
   const razorpayInstance=new Razorpay({
     key_id:process.env.RAZORPAY_KEY,
     key_secret:process.env.RAZORPAY_SECRET,
