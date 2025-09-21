@@ -1,24 +1,102 @@
-.localite{
-     display: flex;
+/* ========== Container ========== */
+.localite {
+  display: flex;
+  flex-wrap: wrap; /* responsive */
+  justify-content: center;
+  align-items: center;
+  gap: 60px;
+  padding: 80px 8%;
+  background: linear-gradient(135deg, #fdfdfd, #f5f7fa);
 }
 
-.map{
-    position: relative;
-    top:230px;
+/* ========== Video Section ========== */
+.localite video {
+  border-radius: 20px;
+  max-width: 500px;
+  width: 100%;
+  height: auto;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.2);
+  transition: transform 0.5s ease, box-shadow 0.5s ease;
+}
+.localite video:hover {
+  transform: scale(1.05) rotate(1deg);
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.25);
 }
 
-.details p{
-    background-image: url('https://res.cloudinary.com/de0gfcyix/image/upload/v1757431724/Purple_Sky_Profile_Header_xhqitf.png');
-    background-repeat: no-repeat;
-    position: relative;
-    left:100px;
-    width: 300px;
-    letter-spacing: 3px;
-    top:90px;
-    font-weight: 600;
+/* ========== Text Section ========== */
+.details {
+  max-width: 550px;
+  line-height: 1.8;
+  font-size: 1.1rem;
+  color: #2d2d2d;
+  animation: fadeSlideUp 1s ease-in-out;
+}
+.details p {
+  margin-bottom: 22px;
+  padding: 16px 20px;
+  border-radius: 14px;
+  letter-spacing: 0.3px;
+  font-weight: 500;
+  background: linear-gradient(135deg, rgba(255, 123, 84, 0.08), rgba(255, 123, 84, 0.15));
+  box-shadow: 0 4px 12px rgba(255, 123, 84, 0.1);
+  transition: all 0.35s ease;
+}
+.details p:hover {
+  background: linear-gradient(135deg, rgba(255, 123, 84, 0.18), rgba(255, 123, 84, 0.25));
+  transform: translateY(-6px) scale(1.02);
+  box-shadow: 0 6px 16px rgba(255, 123, 84, 0.25);
 }
 
-.details .second p{
-    position: relative;
-    left: 500px;
+/* ========== Map Section ========== */
+.map {
+  margin-top: 70px;
+  width: 100%;
+  padding: 0 8%;
+}
+.map iframe {
+  width: 100%;
+  height: 460px;
+  border: none;
+  border-radius: 18px;
+  box-shadow: 0 14px 30px rgba(0, 0, 0, 0.2);
+  transition: transform 0.4s ease;
+}
+.map iframe:hover {
+  transform: scale(1.01);
+}
+
+/* ========== Animation ========== */
+@keyframes fadeSlideUp {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ========== Responsive ========== */
+@media (max-width: 992px) {
+  .localite {
+    flex-direction: column;
+    gap: 40px;
+    padding: 50px 5%;
+    text-align: center;
+  }
+  .details {
+    max-width: 100%;
+  }
+  .details p {
+    text-align: left;
+  }
+}
+@media (max-width: 576px) {
+  .localite video {
+    max-width: 100%;
+  }
+  .map iframe {
+    height: 360px;
+  }
 }

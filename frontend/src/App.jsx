@@ -10,6 +10,7 @@ import { Classify } from "./Classify.jsx";
 import { ClassLoader } from "./ClassLoader.jsx";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import "./App.css"
 
 export const App = () => {
   const router = createBrowserRouter([
@@ -49,7 +50,8 @@ export const App = () => {
 
   return(
   <> 
-    <RouterProvider router={router} />;
+   <div className="app-container">
+     <RouterProvider router={router} />;
 
           <ToastContainer
         position="top-right"
@@ -61,6 +63,7 @@ export const App = () => {
         draggable
         theme="colored"
       />
+   </div>
 
   </>
   )
