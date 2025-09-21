@@ -12,13 +12,13 @@ export const Home = () => {
     useEffect(() => {
       AOS.init({ duration: 2000 });
   }, []);
-  
+
   return (
     <>
     <div className="pizza">
       <GlimpseCard />
     </div>
-        <div className="product">
+    <div className="product">
       <h1>Our Products</h1>
       <br />
       <Product />
@@ -29,19 +29,34 @@ export const Home = () => {
     <div>
       <Special />
     </div>
-    <div className="speciality" >
-      <img src="https://res.cloudinary.com/de0gfcyix/image/upload/v1757074372/www.foodie.com_e06pbo.png" alt="" />
+    {/* adding responsive inline css */}
+    <div
+      className="speciality"
+      style={{
+        width: "100%",
+        maxWidth: "1400px",
+        margin: "0 auto",
+        boxSizing: "border-box",
+        padding: "0 16px",
+        display: "flex",
+        justifyContent: "center",
+      }}
+    >
+      <img
+        src="https://res.cloudinary.com/de0gfcyix/image/upload/v1757074372/www.foodie.com_e06pbo.png"
+        alt=""
+        
+      />
     </div>
     <div className="delivery" data-aos="zoom-in-right">
       <img src="https://i.ibb.co/xt1s0nH7/Chat-GPT-Image-Aug-30-2025-10-26-18-AM.png" alt="Free Delivery" />
-        <div className="delivery-text">
-          <h3>🎉 Enjoy Free Delivery on Orders Over ₹999!</h3>
-          <h3>🚚 Free Shipping for Orders ₹999+ – Shop More, Save More!</h3>
-          <h3>Hurry! Get Free Delivery When You Spend ₹999 or More!</h3>
-          <h3>🛒 Your Cart Deserves Free Delivery! Just ₹999 Away!</h3>
-        </div>
+      <div className="delivery-text">
+        <h3>🎉 Enjoy Free Delivery on Orders Over ₹999!</h3>
+        <h3>🚚 Free Shipping for Orders ₹999+ – Shop More, Save More!</h3>
+        <h3>Hurry! Get Free Delivery When You Spend ₹999 or More!</h3>
+        <h3>🛒 Your Cart Deserves Free Delivery! Just ₹999 Away!</h3>
+      </div>
     </div>
-
     <div>
       <Accordian />
     </div>

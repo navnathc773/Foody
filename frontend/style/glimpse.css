@@ -5,6 +5,8 @@
   min-height: 100vh;
   background-image: url('https://res.cloudinary.com/de0gfcyix/image/upload/v1757426096/abstract-luxury-gradient-blue-background-smooth-dark-blue-with-black-vignette-studio-banner_e0mgfr.jpg');
   background-repeat: no-repeat;
+  margin-left: 40px;
+  margin-right: 40px;
 }
 
 .glimpse-title {

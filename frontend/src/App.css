@@ -1,0 +1,38 @@
+/* App.css */
+
+/* Ensure the app takes full height */
+.app-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;   /* centers horizontally */
+  justify-content: flex-start; /* keeps normal scroll flow (not forced center vertically) */
+  min-height: 100vh;
+
+  /* Styling */
+  padding: 20px;
+  background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+  font-family: Arial, sans-serif;
+  box-sizing: border-box;
+}
+
+/* Center inner pages */
+.app-container > * {
+  width: 100%;
+  /* max-width: 1200px;  */
+  margin: 0 auto;    /* Ensure centered inside */
+  box-sizing: border-box;
+}
+
+/* Toast styling fix */
+.Toastify__toast-container {
+  font-size: 0.9rem;
+}
+
+/* Prevent horizontal scrollbar */
+html, body {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden; /* hides horizontal scrollbar */
+  box-sizing: border-box;
+  overflow-x: hidden; 
+}

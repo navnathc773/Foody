@@ -125,8 +125,12 @@
   align-items: center; 
   position: relative;
   bottom: 22px;
-  width: 100%;
+  /* width: 200px; */
   height: 550px;
+  margin-left: 40px;
+  margin-right: 40px;
+  
+  
 }
 
 .speciality img {
@@ -135,6 +139,8 @@
   border-radius: 20px; 
   box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3); 
   transition: transform 0.4s ease, box-shadow 0.4s ease;
+  margin-left: 25px;
+  margin-right: 25px;
 }
 
 .speciality img:hover {
